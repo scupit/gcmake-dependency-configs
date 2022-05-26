@@ -1,0 +1,15 @@
+as_subdirectory:
+  git_repo:
+    repo_url: git@github.com:SFML/SFML.git
+  namespace_config:
+    used_in_cmake_yaml: SFML
+    cmakelists_linking: sfml-
+  target_names:
+    - system
+    - window
+    - network
+    - graphics
+    - audio
+    # sfml-main is only available when building for windows
+    # TODO: System for platform-specific dependencies
+    - main
