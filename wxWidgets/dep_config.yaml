@@ -9,8 +9,9 @@ cmake_builtin_find_components_module:
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindwxWidgets.html"
 
   cmakelists_usage:
-    mode: Variable
-    value: wxWidgets_LIBRARIES
+    link_format: Variable
+    link_value: wxWidgets_LIBRARIES
+    found_var: wxWidgets_FOUND
 
   # TODO: Make this a list of objects where
   components:
