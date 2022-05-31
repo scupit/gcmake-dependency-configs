@@ -1,0 +1,14 @@
+cmake_builtin_find_module:
+  found_var: GLEW_FOUND
+
+  links:
+    installation:
+      prebuilt_downloads: "http://glew.sourceforge.net/index.html"
+      building: "http://glew.sourceforge.net/build.html"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindGLEW.html"
+
+  namespace_config:
+    cmakelists_linking: "GLEW::"
+  
+  targets:
+    - GLEW

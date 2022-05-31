@@ -1,9 +1,11 @@
 cmake_builtin_find_module:
-  # find_module_name: FindOpenGL
+  found_var: OPENGL_FOUND
 
-  # links:
-  #   cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindOpenGL.html"
+  links:
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindOpenGL.html"
 
-  # cmakelists_usage:
-  #   mode: Target
-  #   value: OpenGL::GL
+  namespace_config:
+    cmakelists_linking: "OpenGL::"
+  
+  targets:
+    - GL
