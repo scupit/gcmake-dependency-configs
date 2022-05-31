@@ -2,7 +2,6 @@ as_subdirectory:
   git_repo:
     repo_url: git@github.com:SFML/SFML.git
   namespace_config:
-    used_in_cmake_yaml: SFML
     cmakelists_linking: sfml-
   target_names:
     - system

@@ -2,7 +2,6 @@ as_subdirectory:
   git_repo:
     repo_url: git@github.com:fmtlib/fmt.git
   namespace_config:
-    used_in_cmake_yaml: fmt
     cmakelists_linking: "fmt::"
   target_names:
     - fmt

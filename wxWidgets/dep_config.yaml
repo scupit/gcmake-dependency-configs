@@ -1,0 +1,31 @@
+cmake_builtin_find_components_module:
+  find_module_name: FindWxWidgets
+
+  links:
+    installation:
+      prebuilt_downloads: "https://www.wxwidgets.org/downloads/"
+      building: "https://docs.wxwidgets.org/trunk/overview_install.html"
+    components_doc: "https://docs.wxwidgets.org/trunk/page_libs.html"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindwxWidgets.html"
+
+  cmakelists_usage:
+    mode: Variable
+    value: wxWidgets_LIBRARIES
+
+  # TODO: Make this a list of objects where
+  components:
+    - aui
+    - base
+    - core
+    - gl
+    - html
+    - media
+    - net
+    - propertygrid
+    - qa
+    - ribbon
+    - richtext
+    - stc
+    - webview
+    - xrc
+    
