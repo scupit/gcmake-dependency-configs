@@ -1,0 +1,7 @@
+as_subdirectory:
+  git_repo:
+    repo_url: git@github.com:g-truc/glm.git
+  namespace_config:
+    cmakelists_linking: "glm::"
+  target_names:
+    - glm
