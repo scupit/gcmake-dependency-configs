@@ -11,4 +11,6 @@ cmake_builtin_find_module:
     cmakelists_linking: "GLEW::"
   
   targets:
-    - GLEW
+    - glew    # Shared
+    - glew_s  # Static
+    - GLEW    # Either shared or static
