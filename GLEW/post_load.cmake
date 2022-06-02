@@ -14,12 +14,9 @@ if( WIN32 )
 
     find_file( GLEW_SHARED_LIB_FILE
       NAMES
+        # Only search for DLL files, since we only need to copy these on Windows.
         glew32.dll
         libglew32.dll
-        GLEW.so
-        libGLEW.so
-        glew.so
-        libglew.so
       PATHS
         "${GLEW_BIN_PATH}"
       NO_PACKAGE_ROOT_PATH
