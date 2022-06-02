@@ -1,5 +1,8 @@
-# GLEW_DIR will be set if CMake found GLEW using find_package CONFIG mode search.
+# The GLEW DLL is found just fine on Linux when built from source and installed.
+# However, it must be copied over on windows. This finds the DLL on windows and
+# installs it.
 if( WIN32 )
+  # GLEW_DIR will be set if CMake found GLEW using find_package CONFIG mode search.
   if( GLEW_DIR )
     # It's run in config mode
     string( REGEX REPLACE
@@ -8,7 +11,7 @@ if( WIN32 )
       GLEW_BIN_PATH
       "${GLEW_DIR}"
     )
-    message("${GLEW_BIN_PATH}")
+
     find_file( GLEW_SHARED_LIB_FILE
       NAMES
         glew32.dll
