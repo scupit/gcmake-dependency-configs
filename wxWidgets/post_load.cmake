@@ -89,12 +89,12 @@ if( WIN32 AND wxWidgets_LIB_DIR AND NOT TARGET copy-wx-dlls )
             INCLUDE REGEX "${the_regex_searching}"
           )
 
-          set( MATCHED_WX_DLL "${WX_ALL_RELATIVE_DLL_PATHS}" )
-
-          string( LENGTH "${MATCHED_WX_DLL}" DOES_DLL_EXIST )
+          set( MATCHED_WX_DLL_NAME "${WX_ALL_RELATIVE_DLL_PATHS}" )
+          string( LENGTH "${MATCHED_WX_DLL_NAME}" DOES_DLL_EXIST )
 
           if( DOES_DLL_EXIST )
-            list( APPEND WX_DLLS_TO_COPY "${wxWidgets_LIB_DIR}/${MATCHED_WX_DLL}" )
+            set( MATCHED_WX_DLL "${wxWidgets_LIB_DIR}/${MATCHED_WX_DLL_NAME}" )
+            list( APPEND WX_DLLS_TO_COPY "${MATCHED_WX_DLL}" )
             add_to_needed_files_list( "${MATCHED_WX_DLL}" )
             set( WAS_THE_WX_DLL_FOUND TRUE )
           endif()

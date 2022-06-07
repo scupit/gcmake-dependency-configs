@@ -1,0 +1,11 @@
+cmake_builtin_find_module:
+  found_var: Threads_FOUND
+
+  links:
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindThreads.html"
+
+  namespace_config:
+    cmakelists_linking: "Threads::"
+  
+  targets:
+    - Threads

@@ -1,0 +1,1 @@
+set( THREADS_PREFER_PTHREAD_FLAG FALSE CACHE BOOL "Set to TRUE to use pthread instead of other threading libraries, if possible" )
