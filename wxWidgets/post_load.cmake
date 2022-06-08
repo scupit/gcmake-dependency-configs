@@ -1,3 +1,5 @@
+include( ${wxWidgets_USE_FILE} )
+
 if( WIN32 AND wxWidgets_LIB_DIR AND NOT TARGET copy-wx-dlls )
 
   string( REGEX MATCH "dll/?$" WX_IS_USING_DLLS "${wxWidgets_LIB_DIR}" )
