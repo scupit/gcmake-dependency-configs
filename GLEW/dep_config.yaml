@@ -1,4 +1,5 @@
-cmake_builtin_find_module:
+cmake_module:
+  module_type: FindModule
   found_var: GLEW_FOUND
 
   links:

@@ -1,4 +1,6 @@
-cmake_builtin_find_components_module:
+cmake_components_module:
+  module_type: FindModule
+
   links:
     installation:
       prebuilt_downloads: "https://www.wxwidgets.org/downloads/"

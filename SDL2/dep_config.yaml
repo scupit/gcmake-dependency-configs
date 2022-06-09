@@ -1,0 +1,26 @@
+cmake_module:
+  module_type: ConfigFile
+  found_var: SDL2_FOUND
+
+  # Additional vars:
+  # SDL2_SDL2_FOUND
+  # SDL2_SDL2-static_FOUND
+  # SDL2_SDL2main_FOUND
+  # SDL2_SDL2test_FOUND
+  # SDL2_BINDIR
+
+  links:
+    installation:
+      prebuilt_downloads: "https://www.libsdl.org/download-2.0.php"
+      building: "http://wiki.libsdl.org/SourceCode"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindSDL.html"
+
+  namespace_config:
+    cmakelists_linking: "SDL2::"
+  
+  targets:
+    - SDL2        # Shared version of SDL2, if a shared SDL2 lib was found.
+                  # Otherwise acts as an alias to SDL2-static (see below).
+    - SDL2-static # Static version of SDL2
+    - SDL2main    # Provides SDL_main. Always static.
+    - SDL2test    # Provides some common SDL testing functionality. Always static.

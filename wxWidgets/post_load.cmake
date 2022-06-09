@@ -108,7 +108,7 @@ if( WIN32 AND wxWidgets_LIB_DIR AND NOT TARGET copy-wx-dlls )
       endif()
     endforeach()
 
-    message( "WX DLLs to copy: ${WX_DLLS_TO_COPY}")
+    # message( "WX DLLs to copy: ${WX_DLLS_TO_COPY}")
 
     add_custom_target( copy-wx-dlls ALL
       COMMAND
