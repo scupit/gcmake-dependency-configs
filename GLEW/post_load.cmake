@@ -38,7 +38,7 @@ if( WIN32 )
         COMMAND
           ${CMAKE_COMMAND} -E copy "${GLEW_SHARED_LIB_FILE}" "${MY_RUNTIME_OUTPUT_DIR}"
       )
-      add_to_needed_files_list( "${GLEW_SHARED_LIB_FILE}" )
+      add_to_needed_bin_files_list( "${GLEW_SHARED_LIB_FILE}" )
     endif()
   endif()
 endif()

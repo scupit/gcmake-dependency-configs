@@ -1,12 +1,14 @@
 as_subdirectory:
   requires_custom_fetchcontent_populate: true
+  install_if_linked: true
+
   git_repo:
     repo_url: git@github.com:nothings/stb.git
   namespace_config:
-    cmakelists_linking: "stb::"
+    cmakelists_linking: "stb_"
   target_names:
     - image
     - image_write
     - image_resize
     - divide
-    # There are more. TODO: Add the rest. Make sure they are added to CMakeLists
+    # There are more. TODO: Add the rest here once they are added to the custom_populate.cmake
