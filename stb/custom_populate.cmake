@@ -7,7 +7,7 @@ function( populate_stb_lib
   target_name
   header_name
 )
-  if( NOT TARGET ${target_name} )
+  if( NOT TARGET stb_${target_name} )
     string( REPLACE
       ".h"
       "_header"
