@@ -1,1 +1,1 @@
-set( JSON_install ON CACHE BOOL "Whether to install nlohmann_json" )
+set( JSON_Install ON CACHE BOOL "Whether to install nlohmann_json" )
