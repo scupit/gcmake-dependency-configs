@@ -1,11 +1,10 @@
 as_subdirectory:
   requires_custom_fetchcontent_populate: true
-  install_if_linked: true
 
   git_repo:
     repo_url: git@github.com:nothings/stb.git
   namespace_config:
-    cmakelists_linking: "stb_"
+    cmakelists_linking: "stb::"
   target_names:
     - image
     - image_write

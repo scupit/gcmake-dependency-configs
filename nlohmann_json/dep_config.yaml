@@ -1,6 +1,7 @@
 as_subdirectory:
+  include_dir_name: nlohmann
   git_repo:
-    repo_url: git@github.com:ArthurSonzogni/nlohmann_json_cmake_fetchcontent.git
+    repo_url: git@github.com:nlohmann/json.git
   namespace_config:
     cmakelists_linking: "nlohmann_json::"
   target_names:

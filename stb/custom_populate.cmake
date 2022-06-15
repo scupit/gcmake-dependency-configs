@@ -17,6 +17,7 @@ function( populate_stb_lib
 
     find_file( ${stb_header_item}
       REQUIRED
+      NO_CACHE
       NAMES
         ${header_name}
       PATHS
@@ -38,7 +39,7 @@ function( populate_stb_lib
           FILES ${stb_h_files_b} ${stb_h_files_i}
     )
 
-    # add_library( stb::${target_name} ALIAS stb__${target_name} )
+    add_library( stb::${target_name} ALIAS stb_${target_name} )
   endif()
 endfunction()
 

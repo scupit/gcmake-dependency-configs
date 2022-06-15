@@ -1,0 +1,2 @@
+set( GLM_TEST_ENABLE FALSE )
+set( GLM_INSTALL TRUE CACHE BOOL "Whether to install GLM" )
