@@ -1,5 +1,5 @@
 as_subdirectory:
-  include_dir_name: nlohmann
+  installed_include_dir_name: nlohmann
   git_repo:
     recursive_clone: false
     repo_url: git@github.com:nlohmann/json.git
