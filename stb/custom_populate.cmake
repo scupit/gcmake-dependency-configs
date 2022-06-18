@@ -39,6 +39,13 @@ function( populate_stb_lib
           FILES ${stb_h_files_b} ${stb_h_files_i}
     )
 
+    if( CURRENT_SYSTEM_IS_LINUX AND (USING_GCC OR USING_CLANG) )
+      target_link_libraries( stb_${target_name}
+        # Need to link the math library
+        INTERFACE m
+      )
+    endif()
+
     add_library( stb::${target_name} ALIAS stb_${target_name} )
   endif()
 endfunction()
