@@ -28,5 +28,6 @@ cmake_components_module:
     - richtext
     - stc
     - webview
+    - xml
     - xrc
     
