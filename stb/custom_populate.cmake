@@ -39,6 +39,7 @@ function( populate_stb_lib
           FILES ${stb_h_files_b} ${stb_h_files_i}
     )
 
+    # TODO: Should this use 'TARGET_SYSTEM_IS_LINUX'? (or target system is unix?)
     if( CURRENT_SYSTEM_IS_LINUX AND (USING_GCC OR USING_CLANG) )
       target_link_libraries( stb_${target_name}
         # Need to link the math library
