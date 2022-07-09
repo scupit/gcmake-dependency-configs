@@ -1,1 +1,1 @@
-set( JSON_Install ON CACHE BOOL "Whether to install nlohmann_json" )
+set( JSON_Install ON CACHE BOOL "Whether to install nlohmann_json. GCMake sets this to ON by default." )
