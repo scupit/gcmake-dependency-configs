@@ -5,4 +5,4 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "yaml-cpp::"
   target_names:
-    - yaml-cpp
+    yaml-cpp: ~

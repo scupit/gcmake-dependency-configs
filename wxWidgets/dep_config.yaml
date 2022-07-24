@@ -13,21 +13,37 @@ cmake_components_module:
     link_value: wxWidgets_LIBRARIES
     found_var: wxWidgets_FOUND
 
-  # TODO: Make this a list of objects where
+  # TODO: Make components a map of name to configuration, so that dependencies between
+  # component 'targets' can be automatically established and other configuration can be
+  # added in the future.
   components:
-    - aui
-    - base
-    - core
-    - gl
-    - html
-    - media
-    - net
-    - propertygrid
-    - qa
-    - ribbon
-    - richtext
-    - stc
-    - webview
-    - xml
-    - xrc
+    aui:
+      requires: [ core ]
+    base: ~
+    core:
+      requires: [ base ]
+    gl:
+      requires: [ core ]
+    html:
+      requires: [ core ]
+    media:
+      requires: [ core ]
+    net:
+      requires: [ base ]
+    propertygrid:
+      requires: [ core ]
+    qa:
+      requires: [ xml, core ]
+    ribbon:
+      requires: [ core ]
+    richtext:
+      requires: [ html, xml ]
+    stc:
+      requires: [ core ]
+    webview:
+      requires: [ core ]
+    xml:
+      requires: [ base ]
+    xrc:
+      requires: [ core, html, xml ]
     

@@ -4,4 +4,4 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "fmt::"
   target_names:
-    - fmt
+    fmt: ~

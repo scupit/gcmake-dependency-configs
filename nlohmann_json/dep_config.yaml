@@ -6,4 +6,4 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "nlohmann_json::"
   target_names:
-    - nlohmann_json
+    nlohmann_json: ~

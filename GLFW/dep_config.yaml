@@ -5,4 +5,4 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: ""
   target_names:
-    - glfw
+    glfw: ~

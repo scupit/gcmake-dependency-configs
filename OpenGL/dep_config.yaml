@@ -9,4 +9,4 @@ cmake_module:
     cmakelists_linking: "OpenGL::"
   
   targets:
-    - GL
+    GL: ~

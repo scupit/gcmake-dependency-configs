@@ -1,0 +1,11 @@
+as_subdirectory:
+  git_repo:
+    recursive_clone: false
+    repo_url: git@github.com:catchorg/Catch2.git
+  namespace_config:
+    cmakelists_linking: "Catch2::"
+  target_names:
+    Catch2WithMain: ~
+    # This target exists for tests which need to specify their own main file. Maybe support this in
+    # the future once I figure out the details and implications.
+    # - Catch2

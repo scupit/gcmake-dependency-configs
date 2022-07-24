@@ -6,8 +6,8 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "stb::"
   target_names:
-    - image
-    - image_write
-    - image_resize
-    - divide
+    image: ~
+    image_write: ~
+    image_resize: ~
+    divide: ~
     # There are more. TODO: Add the rest here once they are added to the custom_populate.cmake

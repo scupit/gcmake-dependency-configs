@@ -4,11 +4,16 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: sfml-
   target_names:
-    - system
-    - window
-    - network
-    - graphics
-    - audio
+    system: ~
+    window:
+      requires: [ system ]
+    network:
+      requires: [ system ]
+    graphics:
+      requires: [ window, system ]
+    audio:
+      requires: [ system ]
     # sfml-main is only available when building for windows
     # TODO: System for platform-specific dependencies
-    - main
+    # Also, I'm not sure yet if this requires 'system' or not.
+    main: ~
