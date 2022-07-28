@@ -4,5 +4,5 @@ as_subdirectory:
     repo_url: git@github.com:glfw/glfw.git
   namespace_config:
     cmakelists_linking: ""
-  target_names:
-    glfw: ~
+  target_configs:
+    glfw: { }

@@ -4,5 +4,5 @@ as_subdirectory:
     repo_url: git@github.com:jbeder/yaml-cpp.git
   namespace_config:
     cmakelists_linking: "yaml-cpp::"
-  target_names:
-    yaml-cpp: ~
+  target_configs:
+    yaml-cpp: { }

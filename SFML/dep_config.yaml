@@ -3,8 +3,8 @@ as_subdirectory:
     repo_url: git@github.com:SFML/SFML.git
   namespace_config:
     cmakelists_linking: sfml-
-  target_names:
-    system: ~
+  target_configs:
+    system: { }
     window:
       requires: [ system ]
     network:
@@ -16,4 +16,4 @@ as_subdirectory:
     # sfml-main is only available when building for windows
     # TODO: System for platform-specific dependencies
     # Also, I'm not sure yet if this requires 'system' or not.
-    main: ~
+    main: { }

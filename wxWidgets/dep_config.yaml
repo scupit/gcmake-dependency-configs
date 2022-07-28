@@ -19,7 +19,7 @@ cmake_components_module:
   components:
     aui:
       requires: [ core ]
-    base: ~
+    base: { }
     core:
       requires: [ base ]
     gl:

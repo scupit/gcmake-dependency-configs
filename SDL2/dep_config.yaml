@@ -19,8 +19,8 @@ cmake_module:
     cmakelists_linking: "SDL2::"
   
   targets:
-    SDL2: ~         # Shared version of SDL2, if a shared SDL2 lib was found.
+    SDL2: { }         # Shared version of SDL2, if a shared SDL2 lib was found.
                     # Otherwise acts as an alias to SDL2-static (see below).
-    SDL2-static: ~  # Static version of SDL2
-    SDL2main: ~     # Provides SDL_main. Always static.
-    SDL2test: ~     # Provides some common SDL testing functionality. Always static.
+    SDL2-static: { }  # Static version of SDL2
+    SDL2main: { }     # Provides SDL_main. Always static.
+    SDL2test: { }     # Provides some common SDL testing functionality. Always static.

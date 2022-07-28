@@ -5,9 +5,9 @@ as_subdirectory:
     repo_url: git@github.com:nothings/stb.git
   namespace_config:
     cmakelists_linking: "stb::"
-  target_names:
-    image: ~
-    image_write: ~
-    image_resize: ~
-    divide: ~
+  target_configs:
+    image: { }
+    image_write: { }
+    image_resize: { }
+    divide: { }
     # There are more. TODO: Add the rest here once they are added to the custom_populate.cmake
