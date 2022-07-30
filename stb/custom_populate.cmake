@@ -1,7 +1,14 @@
 
 set( stb_RELATIVE_DEP_PATH "dep/stb" )
-set( stb_DEP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/${stb_RELATIVE_DEP_PATH}" )
-set( stb_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/${stb_RELATIVE_DEP_PATH}" )
+set( stb_DEP_DIR "${TOPLEVEL_PROJECT_DIR}/${stb_RELATIVE_DEP_PATH}" )
+set( stb_INCLUDE_DIR "${TOPLEVEL_PROJECT_DIR}/${stb_RELATIVE_DEP_PATH}" )
+
+# In this 'dependency configuration' context, the current source directory and the toplevel
+# source directory are always the same. This is because dependencies are only configured in the project root.
+# However, we'll use the toplevel project dir variables for clarity.
+
+# set( stb_DEP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/${stb_RELATIVE_DEP_PATH}" )
+# set( stb_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/${stb_RELATIVE_DEP_PATH}" )
 
 function( populate_stb_lib
   target_name
@@ -24,15 +31,15 @@ function( populate_stb_lib
         "${stb_DEP_DIR}"
     )
 
-    get_without_source_dir_prefix( "${${stb_header_item}}" stb_header_item_install )
+    get_without_toplevel_dir_prefix( "${${stb_header_item}}" stb_header_item_install )
     make_generators( "${${stb_header_item}}" "${stb_header_item_install}" stb_h_files )
 
-    # add_library( stb_${target_name} INTERFACE IMPORTED )
     add_library( stb_${target_name} INTERFACE )
     target_include_directories( stb_${target_name} INTERFACE
       "$<BUILD_INTERFACE:${stb_INCLUDE_DIR}>"
       "$<INSTALL_INTERFACE:include/${stb_RELATIVE_DEP_PATH}>"
     )
+
     target_sources( stb_${target_name}
       INTERFACE
         FILE_SET HEADERS

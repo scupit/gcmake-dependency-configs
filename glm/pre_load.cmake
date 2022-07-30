@@ -1,2 +1,2 @@
-set( GLM_TEST_ENABLE FALSE )
-set( GLM_INSTALL TRUE CACHE BOOL "Whether to install GLM" )
+set( GLM_TEST_ENABLE  OFF CACHE BOOL "Whether to build GLM tests. GCMake sets this to OFF by default." )
+set( GLM_INSTALL      ON CACHE BOOL "Whether to install GLM. GCMake sets this to ON by default." )
