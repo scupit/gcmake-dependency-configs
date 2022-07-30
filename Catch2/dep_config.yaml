@@ -5,7 +5,7 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "Catch2::"
   target_configs:
+    # TODO: Specify that Catch2 is mutually exclusive from Catch2WithMain. That is, only one or the other can
+    # be linked to, but not both.
     Catch2WithMain: { }
-    # This target exists for tests which need to specify their own main file. Maybe support this in
-    # the future once I figure out the details and implications.
-    # - Catch2
+    Catch2: { }
