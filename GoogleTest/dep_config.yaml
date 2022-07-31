@@ -1,0 +1,8 @@
+as_subdirectory:
+  git_repo:
+    repo_url: git@github.com:google/googletest.git
+  namespace_config:
+    cmakelists_linking: "GTest::"
+  target_configs:
+    gtest: { }
+    gtest_main: { }
