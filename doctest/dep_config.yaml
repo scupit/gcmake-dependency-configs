@@ -1,0 +1,8 @@
+as_subdirectory:
+  git_repo:
+    repo_url: git@github.com:doctest/doctest.git
+  namespace_config:
+    cmakelists_linking: "doctest::"
+  target_configs:
+    doctest: { }
+    doctest_with_main: { }

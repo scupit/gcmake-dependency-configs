@@ -1,6 +1,5 @@
 as_subdirectory:
   git_repo:
-    recursive_clone: false
     repo_url: git@github.com:catchorg/Catch2.git
   namespace_config:
     cmakelists_linking: "Catch2::"

@@ -1,6 +1,5 @@
 as_subdirectory:
   git_repo:
-    recursive_clone: false
     repo_url: git@github.com:jbeder/yaml-cpp.git
   namespace_config:
     cmakelists_linking: "yaml-cpp::"
