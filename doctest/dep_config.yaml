@@ -3,6 +3,10 @@ as_subdirectory:
     repo_url: git@github.com:doctest/doctest.git
   namespace_config:
     cmakelists_linking: "doctest::"
+
+  mutually_exclusive:
+    - doctest, doctest_with_main
+
   target_configs:
     doctest: { }
     doctest_with_main: { }

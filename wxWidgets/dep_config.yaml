@@ -13,9 +13,6 @@ cmake_components_module:
     link_value: wxWidgets_LIBRARIES
     found_var: wxWidgets_FOUND
 
-  # TODO: Make components a map of name to configuration, so that dependencies between
-  # component 'targets' can be automatically established and other configuration can be
-  # added in the future.
   components:
     aui:
       requires: [ core ]

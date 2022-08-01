@@ -3,6 +3,10 @@ as_subdirectory:
     repo_url: git@github.com:google/googletest.git
   namespace_config:
     cmakelists_linking: "GTest::"
+
+  mutually_exclusive:
+    - gtest, gtest_main
+
   target_configs:
     gtest: { }
     gtest_main: { }

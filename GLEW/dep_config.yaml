@@ -11,7 +11,22 @@ cmake_module:
   namespace_config:
     cmakelists_linking: "GLEW::"
   
+  mutually_exclusive:
+    - glew, glew_s, GLEW
+  
   targets:
-    glew: { }     # Shared
+    # TODO: Currently the target name 'key' is used as a link target in cmake_data.yaml AND
+    # also used as the written target name when namespacing/writing the target to CMakeLists.txt.
+    # That is fine. However, for situations like this where target names are weird or aren't clear,
+    # I'd like to be able to change the written name of a target. That way the target name used in
+    # cmake_data.yaml wouldn't need to change even if the library target did, and we can make usable
+    # target names clearer.
+    # For example, we could do this:
+    # glew_shared:
+    #   real_name: glew
+    # glew_static:
+    #   real_name: glew_s
+    # GLEW: { }
+    glew: { }    # Shared
     glew_s: { }  # Static
     GLEW: { }    # Either shared or static

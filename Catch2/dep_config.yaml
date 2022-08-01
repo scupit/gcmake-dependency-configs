@@ -3,8 +3,10 @@ as_subdirectory:
     repo_url: git@github.com:catchorg/Catch2.git
   namespace_config:
     cmakelists_linking: "Catch2::"
+
+  mutually_exclusive:
+    - Catch2WithMain, Catch2
+
   target_configs:
-    # TODO: Specify that Catch2 is mutually exclusive from Catch2WithMain. That is, only one or the other can
-    # be linked to, but not both.
     Catch2WithMain: { }
     Catch2: { }
