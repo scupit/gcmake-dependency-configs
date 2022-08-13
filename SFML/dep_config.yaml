@@ -13,7 +13,5 @@ as_subdirectory:
       requires: [ window, system ]
     audio:
       requires: [ system ]
-    # sfml-main is only available when building for windows
-    # TODO: System for platform-specific dependencies
-    # Also, I'm not sure yet if this requires 'system' or not.
-    main: { }
+    ((windows)) main:
+      requires: [ system ]
