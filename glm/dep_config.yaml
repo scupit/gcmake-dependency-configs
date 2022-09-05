@@ -1,4 +1,5 @@
 as_subdirectory:
+  can_cross_compile: true
   git_repo:
     # repo_url: git@github.com:g-truc/glm.git
     repo_url: git@github.com:scupit/glm.git

@@ -1,4 +1,5 @@
 as_subdirectory:
+  can_cross_compile: true
   requires_custom_fetchcontent_populate: true
 
   git_repo:

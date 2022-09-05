@@ -1,4 +1,5 @@
 as_subdirectory:
+  can_cross_compile: false
   git_repo:
     repo_url: git@github.com:SFML/SFML.git
   namespace_config:

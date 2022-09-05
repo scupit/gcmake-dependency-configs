@@ -1,4 +1,5 @@
 as_subdirectory:
+  can_cross_compile: false
   config_file_project_name: glfw3
   git_repo:
     repo_url: git@github.com:glfw/glfw.git
