@@ -12,7 +12,7 @@ cmake_module:
     cmakelists_linking: "GLEW::"
   
   mutually_exclusive:
-    - glew-shared, glew-static, GLEW
+    - [ glew-shared, glew-static, GLEW ]
   
   targets:
     glew-shared:

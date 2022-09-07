@@ -19,7 +19,7 @@ cmake_module:
     cmakelists_linking: "SDL2::"
 
   mutually_exclusive:
-    - SDL2, SDL2-static
+    - [ SDL2, SDL2-static ]
   
   targets:
     # Shared version of SDL2, if a shared SDL2 lib was found.

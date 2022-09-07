@@ -6,7 +6,7 @@ as_subdirectory:
     cmakelists_linking: "GTest::"
 
   mutually_exclusive:
-    - gtest, gtest_main
+    - [ gtest, gtest_main ]
 
   target_configs:
     gtest: { }

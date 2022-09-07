@@ -6,7 +6,7 @@ as_subdirectory:
     cmakelists_linking: "Catch2::"
 
   mutually_exclusive:
-    - Catch2WithMain, Catch2
+    - [ Catch2WithMain, Catch2 ]
 
   target_configs:
     Catch2WithMain: { }

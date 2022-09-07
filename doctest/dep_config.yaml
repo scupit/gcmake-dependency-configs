@@ -6,7 +6,7 @@ as_subdirectory:
     cmakelists_linking: "doctest::"
 
   mutually_exclusive:
-    - doctest, doctest_with_main
+    - [ doctest, doctest_with_main ]
 
   target_configs:
     doctest: { }
