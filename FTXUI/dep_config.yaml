@@ -1,0 +1,11 @@
+as_subdirectory:
+  can_cross_compile: true
+  git_repo:
+    repo_url: git@github.com:ArthurSonzogni/FTXUI.git
+  namespace_config:
+    cmakelists_linking: "ftxui::"
+
+  target_configs:
+    screen: { }
+    dom: { }
+    component: { }
