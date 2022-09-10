@@ -1,0 +1,16 @@
+as_subdirectory:
+  can_cross_compile: true
+  git_repo:
+    repo_url: git@github.com:zeux/pugixml.git
+  namespace_config:
+    cmakelists_linking: "pugixml::"
+
+  mutually_exclusive:
+    - [ pugixml, pugixml-shared, pugixml-static ]
+
+  target_configs:
+    # pugixml-shared is only built when BUILD_SHARED_LIBS is ON. 
+    pugixml-shared: { }
+    pugixml-static: { }
+    # This is an alias to either the static or shared library version.
+    pugixml: { }
