@@ -1,0 +1,9 @@
+as_subdirectory:
+  can_cross_compile: true
+  git_repo:
+    repo_url: git@github.com:jarro2783/cxxopts.git
+  namespace_config:
+    cmakelists_linking: "cxxopts::"
+
+  target_configs:
+    cxxopts: { }
