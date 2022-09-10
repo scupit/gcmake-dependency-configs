@@ -1,0 +1,9 @@
+as_subdirectory:
+  can_cross_compile: true
+  git_repo:
+    repo_url: git@github.com:CLIUtils/CLI11.git
+  namespace_config:
+    cmakelists_linking: "CLI11::"
+
+  target_configs:
+    CLI11: { }
