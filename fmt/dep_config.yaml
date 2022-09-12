@@ -4,5 +4,7 @@ as_subdirectory:
     repo_url: git@github.com:fmtlib/fmt.git
   namespace_config:
     cmakelists_linking: "fmt::"
+  
+  install_var: FMT_INSTALL
   target_configs:
     fmt: { }

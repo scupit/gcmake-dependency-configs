@@ -5,6 +5,9 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "doctest::"
 
+  inverse_install_var: DOCTEST_NO_INSTALL
+  install_by_default: false
+
   mutually_exclusive:
     - [ doctest, doctest_with_main ]
 

@@ -5,5 +5,7 @@ as_subdirectory:
     repo_url: git@github.com:scupit/glm.git
   namespace_config:
     cmakelists_linking: "glm::"
+
+  install_var: GLM_INSTALL
   target_configs:
     glm: { }

@@ -5,6 +5,7 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "ftxui::"
 
+  install_var: FTXUI_ENABLE_INSTALL
   target_configs:
     screen: { }
     dom: { }

@@ -2,7 +2,7 @@
 # However, it must be copied over on windows. This finds the DLL on windows and
 # installs it.
 if( WIN32 )
-  set( GLEW_WIN_SHOULD_COPY_DLL ON CACHE BOOL "(Windows Only) whether to automatically copy the GLEW DLL to the build and install directories, when needed." )
+  option( GLEW_WIN_SHOULD_COPY_DLL "(Windows Only) whether to automatically copy the GLEW DLL to the build and install directories, when needed." ON )
 
   if( GLEW_WIN_SHOULD_COPY_DLL )
     # GLEW_DIR will be set if CMake found GLEW using find_package CONFIG mode search.

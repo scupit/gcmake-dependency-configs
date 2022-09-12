@@ -8,6 +8,9 @@ as_subdirectory:
   mutually_exclusive:
     - [ gtest, gtest_main ]
 
+  install_var: INSTALL_GTEST
+  install_by_default: false
+
   target_configs:
     gtest: { }
     gtest_main: { }

@@ -5,5 +5,7 @@ as_subdirectory:
     repo_url: git@github.com:glfw/glfw.git
   namespace_config:
     cmakelists_linking: ""
+
+  install_var: GLFW_INSTALL
   target_configs:
     glfw: { }

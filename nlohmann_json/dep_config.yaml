@@ -5,5 +5,7 @@ as_subdirectory:
     repo_url: git@github.com:nlohmann/json.git
   namespace_config:
     cmakelists_linking: "nlohmann_json::"
+
+  install_var: JSON_Install
   target_configs:
     nlohmann_json: { }
