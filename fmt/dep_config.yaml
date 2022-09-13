@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  links:
+    github: https://github.com/fmtlib/fmt
   git_repo:
     repo_url: git@github.com:fmtlib/fmt.git
   namespace_config:

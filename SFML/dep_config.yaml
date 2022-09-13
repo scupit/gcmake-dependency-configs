@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: false
+  links:
+    github: https://github.com/SFML/SFML
   git_repo:
     repo_url: git@github.com:SFML/SFML.git
   namespace_config:

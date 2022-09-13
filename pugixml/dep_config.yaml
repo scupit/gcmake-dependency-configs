@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  links:
+    github: https://github.com/zeux/pugixml
   git_repo:
     repo_url: git@github.com:zeux/pugixml.git
   namespace_config:

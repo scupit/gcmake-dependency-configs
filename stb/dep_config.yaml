@@ -2,6 +2,8 @@ as_subdirectory:
   can_cross_compile: true
   requires_custom_fetchcontent_populate: true
 
+  links: 
+    github: https://github.com/nothings/stb
   git_repo:
     repo_url: git@github.com:nothings/stb.git
   namespace_config:

@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  links:
+    github: https://github.com/CLIUtils/CLI11
   git_repo:
     repo_url: git@github.com:CLIUtils/CLI11.git
   namespace_config:

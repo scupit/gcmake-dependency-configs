@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  links:
+    github: https://github.com/jbeder/yaml-cpp
   git_repo:
     repo_url: git@github.com:jbeder/yaml-cpp.git
   namespace_config:

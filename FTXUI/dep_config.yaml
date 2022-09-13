@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  links:
+    github: https://github.com/ArthurSonzogni/FTXUI
   git_repo:
     repo_url: git@github.com:ArthurSonzogni/FTXUI.git
   namespace_config:

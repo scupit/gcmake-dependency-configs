@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  # TODO: I need to make a PR to the glm repo with the installation variable addition.
+  # once that is merged, add the GML GitHub link here.
   git_repo:
     # repo_url: git@github.com:g-truc/glm.git
     repo_url: git@github.com:scupit/glm.git

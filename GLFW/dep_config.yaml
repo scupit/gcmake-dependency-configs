@@ -1,6 +1,8 @@
 as_subdirectory:
   can_cross_compile: false
   config_file_project_name: glfw3
+  links:
+    github: https://github.com/glfw/glfw
   git_repo:
     repo_url: git@github.com:glfw/glfw.git
   namespace_config:

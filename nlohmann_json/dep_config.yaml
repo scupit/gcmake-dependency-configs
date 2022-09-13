@@ -1,6 +1,8 @@
 as_subdirectory:
   can_cross_compile: true
   installed_include_dir_name: nlohmann
+  links:
+    github: https://github.com/nlohmann/json
   git_repo:
     repo_url: git@github.com:nlohmann/json.git
   namespace_config:

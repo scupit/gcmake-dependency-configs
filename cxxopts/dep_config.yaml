@@ -1,5 +1,7 @@
 as_subdirectory:
   can_cross_compile: true
+  links:
+    github: https://github.com/jarro2783/cxxopts
   git_repo:
     repo_url: git@github.com:jarro2783/cxxopts.git
   namespace_config:
