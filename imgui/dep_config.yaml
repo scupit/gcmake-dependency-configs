@@ -1,0 +1,62 @@
+as_subdirectory:
+  can_cross_compile: true
+  requires_custom_fetchcontent_populate: true
+
+  links: 
+    github: https://github.com/ocornut/imgui
+  git_repo:
+    repo_url: git@github.com:ocornut/imgui.git
+  namespace_config:
+    cmakelists_linking: "imgui::"
+
+  # TODO: Add the FreeType extension https://github.com/ocornut/imgui/tree/master/misc/freetype
+  # and make it depend on FreeType once a predefined dependency is added for FreeType 
+  # using https://cmake.org/cmake/help/latest/module/FindFreetype.html
+  target_configs:
+    imgui_core: { }
+
+    ((android)) android_opengl2:
+      requires: [ imgui_core ]
+    ((android)) android_opengl3:
+      requires: [ imgui_core ]
+
+    # TODO: Enable these once Emscripten https://emscripten.org/
+    # support is added.
+
+    # emscripten_opengl3:
+    #   requires: [ imgui_core ]
+    # emscripten_vulkan:
+    #   requires: [ imgui_core ]
+
+    glfw_opengl2:
+      requires: [ imgui_core ]
+    glfw_opengl3:
+      requires: [ imgui_core ]
+    glfw_vulkan:
+      requires: [ imgui_core ]
+
+    sdl_opengl2:
+      requires: [ imgui_core ]
+    sdl_opengl3:
+      requires: [ imgui_core ]
+    sdl_vulkan:
+      requires: [ imgui_core ]
+    ((windows)) sdl_directx9:
+      requires: [ imgui_core ]
+    ((windows)) sdl_directx10:
+      requires: [ imgui_core ]
+    ((windows)) sdl_directx11:
+      requires: [ imgui_core ]
+    ((windows)) sdl_directx12:
+      requires: [ imgui_core ]
+    sdl_sdlrenderer:
+      requires: [ imgui_core ]
+
+    ((windows)) win32_directx9:
+      requires: [ imgui_core ]
+    ((windows)) win32_directx10:
+      requires: [ imgui_core ]
+    ((windows)) win32_directx11:
+      requires: [ imgui_core ]
+    ((windows)) win32_directx12:
+      requires: [ imgui_core ]
