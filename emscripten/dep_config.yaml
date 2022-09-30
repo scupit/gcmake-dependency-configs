@@ -1,0 +1,20 @@
+as_subdirectory:
+  can_cross_compile: true
+  links: 
+    github: https://github.com/scupit/gcmake-emscripten-compat
+  git_repo:
+    repo_url: git@github.com:scupit/gcmake-emscripten-compat.git
+  namespace_config:
+    cmakelists_linking: "emscripten::"
+  
+  # Don't contstrain these targets to ((emscripten)). They are all CMake INTERFACE targets
+  # which have no effect when not using Emscripten, so there is no need.
+  target_configs:
+    nodeFS:
+      actual_target_name: emscripten-compat_NODEFS
+    idbFS:
+      actual_target_name: emscripten-compat_IDBFS
+    workerFS:
+      actual_target_name: emscripten-compat_WORKERFS
+    proxyFS:
+      actual_target_name: emscripten-compat_PROXYFS

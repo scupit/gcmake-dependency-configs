@@ -18,6 +18,9 @@ cmake_module:
   namespace_config:
     cmakelists_linking: "SDL2::"
 
+  emscripten_config:
+    link_flag: "-sUSE_SDL=2"
+
   mutually_exclusive:
     - [ SDL2, SDL2-static ]
   

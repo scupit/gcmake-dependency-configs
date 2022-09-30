@@ -20,37 +20,41 @@ as_subdirectory:
     ((android)) android_opengl3:
       requires: [ imgui_core ]
 
-    # TODO: Enable these once Emscripten https://emscripten.org/
-    # support is added.
-
-    # emscripten_opengl3:
-    #   requires: [ imgui_core ]
-    # emscripten_vulkan:
-    #   requires: [ imgui_core ]
-
+    # TODO: Add these external_requires once implementd.
     glfw_opengl2:
       requires: [ imgui_core ]
+      # external_requires: [ GLFW::glfw ]
     glfw_opengl3:
       requires: [ imgui_core ]
+      # external_requires: [ GLFW::glfw ]
     glfw_vulkan:
       requires: [ imgui_core ]
+      # external_requires: [ GLFW::glfw ]
 
     sdl_opengl2:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     sdl_opengl3:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     sdl_vulkan:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     ((windows)) sdl_directx9:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     ((windows)) sdl_directx10:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     ((windows)) sdl_directx11:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     ((windows)) sdl_directx12:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
     sdl_sdlrenderer:
       requires: [ imgui_core ]
+      # external_requires: [ SDL2::SDL2 or SDL2::SDL2-static ]
 
     ((windows)) win32_directx9:
       requires: [ imgui_core ]
