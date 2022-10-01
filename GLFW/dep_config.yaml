@@ -10,7 +10,8 @@ as_subdirectory:
     cmakelists_linking: ""
 
   emscripten_config:
-    link_flag: "-USE_GLFW=3"
+    link_flag: "-sUSE_GLFW=3"
+    is_flag_link_time_only: true
 
   install_var: GLFW_INSTALL
   target_configs:
