@@ -1,4 +1,4 @@
-if( WIN32 )
+if( TARGET_SYSTEM_IS_WINDOWS )
   set( SDL2_WIN_SHOULD_COPY_DLL ON CACHE BOOL "(Windows Only) whether to automatically copy the SDL2.dll to the build and install directories, when needed." )
 
   if( SDL2_FOUND AND SDL2_WIN_SHOULD_COPY_DLL )
