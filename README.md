@@ -30,6 +30,13 @@ installation instructions, and are listed here:
 - [SDL2](./SDL2/)
 - [GLEW](./GLEW/)
 
+It's also recommended to use [CCache](https://ccache.dev/) when building large dependencies
+like wxWidgets and SDL2, as it can provide a massive compilation speedup.
+
+Those are all CMake projects, so the
+[GCMake doc page on using CCache](https://github.com/scupit/gcmake-rust/blob/develop/docs/using_ccache.md)
+will be of interest.
+
 ## GCMake Repository Links
 
 - [gcmake-rust](https://github.com/scupit/gcmake-rust): The gcmake C/C++ project configuration tool
