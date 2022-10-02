@@ -129,6 +129,48 @@ function( _populate_imgui_backends )
   endforeach()
 endfunction()
 
+function( _configure_imgui_freetype_extension )
+  set( imgui_FREETYPE_EXTENSION_DIR "${imgui_DEP_DIR}/misc/freetype" )
+  set( extension_source_list
+    "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.cpp"
+  )
+
+  set( extension_header_list
+    "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.h"
+  )
+
+  get_without_toplevel_dir_prefix( "${extension_source_list}" extension_sources_install )
+  get_without_toplevel_dir_prefix( "${extension_header_list}" extension_headers_install )
+  make_generators( "${extension_source_list}" "${extension_sources_install}" extension_sources )
+  make_generators( "${extension_header_list}" "${extension_headers_install}" extension_headers )
+
+  add_library( imgui_freetype_extension INTERFACE )
+  add_library( imgui::imgui_freetype_extension ALIAS imgui_freetype_extension )
+
+  target_compile_definitions( imgui_freetype_extension
+    INTERFACE
+      "IMGUI_ENABLE_FREETYPE=1"
+  )
+
+  target_sources( imgui_freetype_extension
+    INTERFACE
+      ${extension_sources_b}
+      ${extension_sources_i}
+  )
+
+  target_sources( imgui_freetype_extension
+    INTERFACE
+      FILE_SET HEADERS
+        FILES ${extension_headers_b} ${extension_headers_i}
+  )
+
+  target_include_directories( imgui_freetype_extension
+    INTERFACE
+      "$<BUILD_INTERFACE:${imgui_FREETYPE_EXTENSION_DIR}>"
+      "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/misc/freetype>"
+  )
+endfunction()
+
 function( _configure_imgui )
   set( core_source_list
     "${imgui_DEP_DIR}/imgui.cpp"
@@ -174,6 +216,7 @@ function( _configure_imgui )
         FILES ${imgui_core_h_b} ${imgui_core_h_i}
   )
 
+  _configure_imgui_freetype_extension()
   _populate_imgui_backends()
 endfunction()
 

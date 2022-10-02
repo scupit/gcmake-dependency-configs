@@ -1,0 +1,16 @@
+as_subdirectory:
+  can_cross_compile: true
+  links:
+    # website: https://freetype.org/index.html
+    # repository_website: https://gitlab.freedesktop.org/freetype/freetype
+  git_repo:
+    repo_url: https://gitlab.freedesktop.org/freetype/freetype.git
+  namespace_config:
+    cmakelists_linking: ""
+  
+  emscripten_config: 
+    link_flag: "-sUSE_FREETYPE=1"
+  
+  inverse_install_var: SKIP_INSTALL_ALL
+  target_configs:
+    freetype: { }

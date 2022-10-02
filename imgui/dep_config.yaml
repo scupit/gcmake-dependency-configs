@@ -9,11 +9,14 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "imgui::"
 
-  # TODO: Add the FreeType extension https://github.com/ocornut/imgui/tree/master/misc/freetype
-  # and make it depend on FreeType once a predefined dependency is added for FreeType 
-  # using https://cmake.org/cmake/help/latest/module/FindFreetype.html
+  # TODO: Add individual implementations, not just the supported combinations. Developers should still
+  # be able to write their own backend while using a base implementation.
   target_configs:
     imgui_core: { }
+    freetype_extension:
+      actual_target_name: imgui_freetype_extension
+      requires: [ imgui_core ]
+      # external_requires: [ FreeType::freetype ]
 
     ((android)) android_opengl2:
       requires: [ imgui_core ]
