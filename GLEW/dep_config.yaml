@@ -4,8 +4,8 @@ cmake_module:
 
   links:
     installation:
-      prebuilt_downloads: "http://glew.sourceforge.net/index.html"
-      building: "http://glew.sourceforge.net/build.html"
+      prebuilt_downloads: "https://glew.sourceforge.net/index.html"
+      building: "https://glew.sourceforge.net/build.html"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindGLEW.html"
 
   namespace_config:

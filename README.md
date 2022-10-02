@@ -19,6 +19,17 @@ or to clone the repo if it could not be found. *The repo is cloned to the `devel
 
 To update and check out a specific branch, use `gcmake-rust dep-config update --branch your-branch-name`.
 
+## Building Dependencies
+
+All subdirectory dependencies will be cloned and built automatically as part of your project.
+
+Dependencies which must be manually build and installed each have their own README with build and
+installation instructions, and are listed here:
+
+- [wxWidgets](./wxWidgets/)
+- [SDL2](./SDL2/)
+- [GLEW](./GLEW/)
+
 ## GCMake Repository Links
 
 - [gcmake-rust](https://github.com/scupit/gcmake-rust): The gcmake C/C++ project configuration tool
