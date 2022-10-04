@@ -3,9 +3,7 @@ cmake_module:
   found_var: GLEW_FOUND
 
   links:
-    installation:
-      prebuilt_downloads: "https://glew.sourceforge.net/index.html"
-      building: "https://glew.sourceforge.net/build.html"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/GLEW"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindGLEW.html"
 
   namespace_config:

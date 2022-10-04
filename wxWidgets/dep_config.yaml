@@ -2,9 +2,7 @@ cmake_components_module:
   module_type: FindModule
 
   links:
-    installation:
-      prebuilt_downloads: "https://www.wxwidgets.org/downloads/"
-      building: "https://docs.wxwidgets.org/trunk/overview_install.html"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/wxWidgets"
     components_doc: "https://docs.wxwidgets.org/trunk/page_libs.html"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindwxWidgets.html"
 

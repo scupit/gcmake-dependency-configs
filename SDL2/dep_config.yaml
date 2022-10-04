@@ -10,9 +10,7 @@ cmake_module:
   # SDL2_BINDIR
 
   links:
-    installation:
-      prebuilt_downloads: "https://www.libsdl.org/download-2.0.php"
-      building: "http://wiki.libsdl.org/SourceCode"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/SDL2"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindSDL.html"
 
   namespace_config:

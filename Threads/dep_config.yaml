@@ -3,10 +3,14 @@ cmake_module:
   found_var: Threads_FOUND
 
   links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/Threads"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindThreads.html"
 
   namespace_config:
     cmakelists_linking: "Threads::"
+
+  emscripten_config:
+    link_flag: "-sUSE_PTHREADS=1"
   
   targets:
     Threads: { }

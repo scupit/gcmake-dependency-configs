@@ -3,6 +3,7 @@ cmake_module:
   found_var: OPENGL_FOUND
 
   links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/OpenGL"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindOpenGL.html"
 
   namespace_config:
