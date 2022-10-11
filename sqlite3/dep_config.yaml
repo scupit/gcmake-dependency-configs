@@ -1,0 +1,20 @@
+as_subdirectory:
+  can_cross_compile: true
+  requires_custom_fetchcontent_populate: true
+
+  download_info:
+    url_method:
+      url_base: https://www.sqlite.org/2022/sqlite-amalgamation-
+      version_transform: "{{MAJOR}}{{MINOR:3}}{{PATCH:3}}"
+      extensions:
+        windows: zip
+        unix: tar.gz
+
+  emscripten_config:
+    link_flag: "-sUSE_SQLITE3=1"
+
+  namespace_config:
+    cmakelists_linking: "sqlite3::"
+
+  target_configs:
+    sqlite3: { }

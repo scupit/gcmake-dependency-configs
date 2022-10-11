@@ -4,8 +4,17 @@ as_subdirectory:
 
   links: 
     github: https://github.com/ocornut/imgui
-  git_repo:
-    repo_url: git@github.com:ocornut/imgui.git
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:ocornut/imgui.git
+    url_method:
+      url_base: https://github.com/ocornut/imgui/archive/refs/tags/
+      version_transform: "v{{MAJOR}}.{{MINOR}}"
+      extensions:
+        windows: zip
+        unix: tar.gz
+
   namespace_config:
     cmakelists_linking: "imgui::"
 

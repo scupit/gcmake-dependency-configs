@@ -2,8 +2,11 @@ as_subdirectory:
   can_cross_compile: true
   links:
     github: https://github.com/ArthurSonzogni/FTXUI
-  git_repo:
-    repo_url: git@github.com:ArthurSonzogni/FTXUI.git
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:ArthurSonzogni/FTXUI.git
+
   namespace_config:
     cmakelists_linking: "ftxui::"
 

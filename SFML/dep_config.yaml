@@ -2,10 +2,20 @@ as_subdirectory:
   can_cross_compile: false
   links:
     github: https://github.com/SFML/SFML
-  git_repo:
-    repo_url: git@github.com:SFML/SFML.git
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:SFML/SFML.git
+    url_method:
+      url_base: https://github.com/SFML/SFML/archive/refs/tags/
+      version_transform: "{{MAJOR}}.{{MINOR}}.{{PATCH}}"
+      extensions:
+        windows: zip
+        unix: tar.gz
+
   namespace_config:
     cmakelists_linking: sfml-
+
   target_configs:
     system: { }
     window:

@@ -3,8 +3,11 @@ as_subdirectory:
   links:
     # website: https://freetype.org/index.html
     # repository_website: https://gitlab.freedesktop.org/freetype/freetype
-  git_repo:
-    repo_url: https://gitlab.freedesktop.org/freetype/freetype.git
+
+  download_info:
+    git_method:
+      repo_url: https://gitlab.freedesktop.org/freetype/freetype.git
+
   namespace_config:
     cmakelists_linking: ""
   

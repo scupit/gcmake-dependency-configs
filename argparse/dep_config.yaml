@@ -2,8 +2,11 @@ as_subdirectory:
   can_cross_compile: true
   links:
     github: https://github.com/p-ranav/argparse
-  git_repo:
-    repo_url: git@github.com:p-ranav/argparse.git
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:p-ranav/argparse.git
+
   namespace_config:
     cmakelists_linking: "argparse::"
 

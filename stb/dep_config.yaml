@@ -4,8 +4,11 @@ as_subdirectory:
 
   links: 
     github: https://github.com/nothings/stb
-  git_repo:
-    repo_url: git@github.com:nothings/stb.git
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:nothings/stb.git
+
   namespace_config:
     cmakelists_linking: "stb::"
   target_configs:

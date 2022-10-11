@@ -97,78 +97,82 @@ function( _populate_imgui_backends )
 
       set( new_imgui_target_name imgui_${sys}_${resolved_api_name} )
 
-      add_library( ${new_imgui_target_name} INTERFACE )
-      add_library( imgui::${sys}_${resolved_api_name} ALIAS ${new_imgui_target_name} )
+      if( NOT TARGET ${new_imgui_target_name} )
+        add_library( ${new_imgui_target_name} INTERFACE )
+        add_library( imgui::${sys}_${resolved_api_name} ALIAS ${new_imgui_target_name} )
 
-      target_include_directories( ${new_imgui_target_name}
-        INTERFACE
-        "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
-        "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
-        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}>"
-        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/backends>"
-      )
+        target_include_directories( ${new_imgui_target_name}
+          INTERFACE
+          "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
+          "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
+          "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}>"
+          "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/backends>"
+        )
 
-      target_sources( ${new_imgui_target_name}
-        INTERFACE
-          ${im_${sys}_sources_b}
-          ${im_${sys}_sources_i}
-          ${im_${api}_sources_b}
-          ${im_${api}_sources_i}
-      )
+        target_sources( ${new_imgui_target_name}
+          INTERFACE
+            ${im_${sys}_sources_b}
+            ${im_${sys}_sources_i}
+            ${im_${api}_sources_b}
+            ${im_${api}_sources_i}
+        )
 
-      target_sources( ${new_imgui_target_name}
-        INTERFACE
-          FILE_SET HEADERS
-            FILES
-              ${im_${sys}_headers_b}
-              ${im_${sys}_headers_i}
-              ${im_${api}_headers_b}
-              ${im_${api}_headers_i}
-      )
+        target_sources( ${new_imgui_target_name}
+          INTERFACE
+            FILE_SET HEADERS
+              FILES
+                ${im_${sys}_headers_b}
+                ${im_${sys}_headers_i}
+                ${im_${api}_headers_b}
+                ${im_${api}_headers_i}
+        )
+      endif()
     endforeach()
   endforeach()
 endfunction()
 
 function( _configure_imgui_freetype_extension )
-  set( imgui_FREETYPE_EXTENSION_DIR "${imgui_DEP_DIR}/misc/freetype" )
-  set( extension_source_list
-    "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.cpp"
-  )
+  if( NOT TARGET imgui_freetype_extension )
+    set( imgui_FREETYPE_EXTENSION_DIR "${imgui_DEP_DIR}/misc/freetype" )
+    set( extension_source_list
+      "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.cpp"
+    )
 
-  set( extension_header_list
-    "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.h"
-  )
+    set( extension_header_list
+      "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.h"
+    )
 
-  get_without_toplevel_dir_prefix( "${extension_source_list}" extension_sources_install )
-  get_without_toplevel_dir_prefix( "${extension_header_list}" extension_headers_install )
-  make_generators( "${extension_source_list}" "${extension_sources_install}" extension_sources )
-  make_generators( "${extension_header_list}" "${extension_headers_install}" extension_headers )
+    get_without_toplevel_dir_prefix( "${extension_source_list}" extension_sources_install )
+    get_without_toplevel_dir_prefix( "${extension_header_list}" extension_headers_install )
+    make_generators( "${extension_source_list}" "${extension_sources_install}" extension_sources )
+    make_generators( "${extension_header_list}" "${extension_headers_install}" extension_headers )
 
-  add_library( imgui_freetype_extension INTERFACE )
-  add_library( imgui::imgui_freetype_extension ALIAS imgui_freetype_extension )
+    add_library( imgui_freetype_extension INTERFACE )
+    add_library( imgui::imgui_freetype_extension ALIAS imgui_freetype_extension )
 
-  target_compile_definitions( imgui_freetype_extension
-    INTERFACE
-      "IMGUI_ENABLE_FREETYPE=1"
-  )
+    target_compile_definitions( imgui_freetype_extension
+      INTERFACE
+        "IMGUI_ENABLE_FREETYPE=1"
+    )
 
-  target_sources( imgui_freetype_extension
-    INTERFACE
-      ${extension_sources_b}
-      ${extension_sources_i}
-  )
+    target_sources( imgui_freetype_extension
+      INTERFACE
+        ${extension_sources_b}
+        ${extension_sources_i}
+    )
 
-  target_sources( imgui_freetype_extension
-    INTERFACE
-      FILE_SET HEADERS
-        FILES ${extension_headers_b} ${extension_headers_i}
-  )
+    target_sources( imgui_freetype_extension
+      INTERFACE
+        FILE_SET HEADERS
+          FILES ${extension_headers_b} ${extension_headers_i}
+    )
 
-  target_include_directories( imgui_freetype_extension
-    INTERFACE
-      "$<BUILD_INTERFACE:${imgui_FREETYPE_EXTENSION_DIR}>"
-      "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/misc/freetype>"
-  )
+    target_include_directories( imgui_freetype_extension
+      INTERFACE
+        "$<BUILD_INTERFACE:${imgui_FREETYPE_EXTENSION_DIR}>"
+        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/misc/freetype>"
+    )
+  endif()
 endfunction()
 
 function( _configure_imgui )
@@ -194,27 +198,29 @@ function( _configure_imgui )
   make_generators( "${core_source_list}" "${imgui_sources_install}" imgui_core_s )
   make_generators( "${core_header_list}" "${imgui_headers_install}" imgui_core_h )
 
-  add_library( imgui_core INTERFACE )
-  add_library( imgui::imgui_core ALIAS imgui_core )
+  if( NOT TARGET imgui_core )
+    add_library( imgui_core INTERFACE )
+    add_library( imgui::imgui_core ALIAS imgui_core )
 
-  target_include_directories( imgui_core
-    INTERFACE
-      "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
-      "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
-      "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}>"
-      "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/backends>"
-  )
+    target_include_directories( imgui_core
+      INTERFACE
+        "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
+        "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
+        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}>"
+        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/backends>"
+    )
 
-  target_sources( imgui_core
-    INTERFACE
-      ${imgui_core_s_b} ${imgui_core_s_i}
-  )
+    target_sources( imgui_core
+      INTERFACE
+        ${imgui_core_s_b} ${imgui_core_s_i}
+    )
 
-  target_sources( imgui_core
-    INTERFACE
-      FILE_SET HEADERS
-        FILES ${imgui_core_h_b} ${imgui_core_h_i}
-  )
+    target_sources( imgui_core
+      INTERFACE
+        FILE_SET HEADERS
+          FILES ${imgui_core_h_b} ${imgui_core_h_i}
+    )
+  endif()
 
   _configure_imgui_freetype_extension()
   _populate_imgui_backends()

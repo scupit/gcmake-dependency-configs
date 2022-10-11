@@ -4,8 +4,11 @@ as_subdirectory:
   config_file_project_name: glfw3
   links:
     github: https://github.com/glfw/glfw
-  git_repo:
-    repo_url: git@github.com:glfw/glfw.git
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:glfw/glfw.git
+
   namespace_config:
     cmakelists_linking: ""
 
