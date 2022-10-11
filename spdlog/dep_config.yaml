@@ -1,0 +1,18 @@
+as_subdirectory:
+  can_cross_compile: true
+  links:
+    github: https://github.com/gabime/spdlog
+  
+  download_info:
+    git_method:
+      repo_url: git@github.com:gabime/spdlog.git
+    
+  namespace_config:
+    cmakelists_linking: "spdlog::"
+
+  install_var: SPDLOG_INSTALL
+
+  target_configs:
+    spdlog:
+      external_requires:
+        - fmt::fmt
