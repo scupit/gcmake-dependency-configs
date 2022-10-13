@@ -1,7 +1,7 @@
 # The GLEW DLL is found just fine on Linux when built from source and installed.
 # However, it must be copied over on windows. This finds the DLL on windows and
 # installs it.
-if( WIN32 )
+if( TARGET_SYSTEM_IS_WINDOWS )
   option( GLEW_WIN_SHOULD_COPY_DLL "(Windows Only) whether to automatically copy the GLEW DLL to the build and install directories, when needed." ON )
 
   if( GLEW_WIN_SHOULD_COPY_DLL )
@@ -34,6 +34,8 @@ if( WIN32 )
     endif()
 
     if( GLEW_SHARED_LIB_FILE AND NOT TARGET copy-glew-shared )
+      # TODO: Make this a custom command instead. I'd like to guarantee that this runs before the pre-build
+      # step happens.
       add_custom_target( copy-glew-shared ALL
         COMMAND
           ${CMAKE_COMMAND} -E copy "${GLEW_SHARED_LIB_FILE}" "${MY_RUNTIME_OUTPUT_DIR}"

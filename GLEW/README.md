@@ -6,7 +6,7 @@ An OpenGL extension loader library.
 
 - [GLEW Website](https://glew.sourceforge.net/)
 - [GitHub Repository](https://github.com/nigels-com/glew)
-- [GitHub Relases Page](https://github.com/nigels-com/glew/releases)
+- [GitHub Releases Page](https://github.com/nigels-com/glew/releases)
 
 ## Downloading the Correct Snapshot
 

@@ -1,0 +1,13 @@
+cmake_module:
+  module_type: FindModule
+  found_var: CURL_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/CURL"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindCURL.html"
+
+  namespace_config:
+    cmakelists_linking: "CURL::"
+  
+  targets:
+    libcurl: {}
