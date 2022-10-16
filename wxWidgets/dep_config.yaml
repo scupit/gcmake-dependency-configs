@@ -1,5 +1,5 @@
 cmake_components_module:
-  module_type: FindModule
+  module_type: BuiltinFindModule
 
   links:
     gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/wxWidgets"

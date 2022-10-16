@@ -1,5 +1,5 @@
 cmake_module:
-  module_type: FindModule
+  module_type: BuiltinFindModule
   found_var: OPENGL_FOUND
 
   links:

@@ -1,0 +1,17 @@
+cmake_module:
+  module_type: CustomFindModule
+  found_var: ZLIB_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/ZLIB"
+    # We use a custom find module for ZLIB, but this documentation
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindZLIB.html"
+
+  emscripten_config:
+    link_flag: "-sUSE_ZLIB=1"
+
+  namespace_config:
+    cmakelists_linking: "ZLIB::"
+  
+  targets:
+    ZLIB: { }
