@@ -34,7 +34,6 @@ if( TARGET_SYSTEM_IS_WINDOWS AND NOT ALREADY_CONFIGURED_ZLIB )
 
       if( GCMAKE_ZLIB_DLL_${the_file_base_name} )
         list( APPEND _zlib_dll_paths "${GCMAKE_ZLIB_DLL_${the_file_base_name}}" )
-        message( "Retrieved file: ${GCMAKE_ZLIB_DLL_${the_file_base_name}}")
       else()
         message( FATAL_ERROR "Unable to find a zlib DLL" )
       endif()
@@ -45,14 +44,15 @@ if( TARGET_SYSTEM_IS_WINDOWS AND NOT ALREADY_CONFIGURED_ZLIB )
   list( LENGTH _zlib_dll_paths _num_dlls_to_copy )
 
   if( _num_dlls_to_copy )
-    message( "zlib dll paths: ${_zlib_dll_paths}")
     add_custom_target( _copy-zlib-dlls ALL
       COMMAND
         ${CMAKE_COMMAND} -E copy "$<JOIN:\"${_zlib_dll_paths}\",\" \">" "${MY_RUNTIME_OUTPUT_DIR}"
     )
 
     foreach( dll_file IN LISTS _zlib_dll_paths )
-      add_to_needed_bin_files_list( "${dll_file}" )
+      if( DEFINED PROJECT_ZLIB_INSTALL_MODE )
+        add_to_needed_bin_files_list( "${dll_file}" )
+      endif()
     endforeach()
   endif()
 

@@ -28,7 +28,10 @@ if( TARGET_SYSTEM_IS_WINDOWS )
         COMMAND
           ${CMAKE_COMMAND} -E copy "${GCMAKE_FILE_libcurl_dll}" "${MY_RUNTIME_OUTPUT_DIR}"
       )
-      add_to_needed_bin_files_list( "${GCMAKE_FILE_libcurl_dll}" )
+
+      if( DEFINED PROJECT_CURL_INSTALL_MODE )
+        add_to_needed_bin_files_list( "${GCMAKE_FILE_libcurl_dll}" )
+      endif()
     endif()
   endif()
 endif()

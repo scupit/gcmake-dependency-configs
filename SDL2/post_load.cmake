@@ -20,7 +20,9 @@ if( TARGET_SYSTEM_IS_WINDOWS )
         COMMAND
           ${CMAKE_COMMAND} -E copy "${SDL2_SHARED_LIB_FILE}" "${MY_RUNTIME_OUTPUT_DIR}"
       )
-      add_to_needed_bin_files_list( "${SDL2_SHARED_LIB_FILE}" )
+      if( DEFINED PROJECT_SDL2_INSTALL_MODE )
+        add_to_needed_bin_files_list( "${SDL2_SHARED_LIB_FILE}" )
+      endif()
     endif()
   endif()
 endif()
