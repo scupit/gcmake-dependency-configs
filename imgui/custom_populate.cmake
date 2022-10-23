@@ -101,6 +101,11 @@ function( _populate_imgui_backends )
         add_library( ${new_imgui_target_name} INTERFACE )
         add_library( imgui::${sys}_${resolved_api_name} ALIAS ${new_imgui_target_name} )
 
+        # Fixes the "undefined reference to symbol 'dlsym@@GLIBC_2.x.x'" linker error.
+        if( sys STREQUAL "sdl" OR api MATCHES "opengl" )
+          target_link_libraries( ${new_imgui_target_name} INTERFACE "$<$<BOOL:${TARGET_SYSTEM_IS_LINUX}>:-ldl>" )
+        endif()
+
         target_include_directories( ${new_imgui_target_name}
           INTERFACE
           "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"

@@ -6,6 +6,12 @@ cmake_module:
     gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/CURL"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindCURL.html"
 
+  debian_packages:
+    runtime:
+      - libcurl4
+    dev:
+      - libcurl4-openssl-dev
+
   namespace_config:
     cmakelists_linking: "CURL::"
   

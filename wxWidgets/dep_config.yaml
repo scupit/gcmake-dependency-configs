@@ -10,6 +10,20 @@ cmake_components_module:
     link_format: Variable
     link_value: wxWidgets_LIBRARIES
     found_var: wxWidgets_FOUND
+  
+  debian_packages:
+    runtime:
+      - libwxsvg3
+      - libwxbase3.0-0v5
+      - libwxgtk-media3.0-gtk3-0v5
+      - libwxgtk-webview3.0-gtk3-0v5
+      - libwxgtk3.0-gtk3-0v5
+    dev:
+      - libwxsvg-dev
+      - libwxbase3.0-dev
+      - libwxgtk-media3.0-gtk3-dev
+      - libwxgtk-webview3.0-gtk3-dev
+      - libwxgtk3.0-gtk3-dev
 
   components:
     aui:

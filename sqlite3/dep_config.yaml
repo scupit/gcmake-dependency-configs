@@ -10,6 +10,12 @@ as_subdirectory:
         windows: zip
         unix: tar.gz
 
+  debian_packages:
+    runtime:
+      - libsqlite3-0
+    dev:
+      - libsqlite3-dev
+
   emscripten_config:
     link_flag: "-sUSE_SQLITE3=1"
 

@@ -1,5 +1,7 @@
 cmake_module:
-  module_type: BuiltinFindModule
+  # CMake has a built-in FindGLEW.cmake file, but it doesn't seem to find glew even after
+  # 'apt installing' both libglew2.1 and libglew-dev.
+  module_type: ConfigFile
   found_var: GLEW_FOUND
 
   links:
@@ -11,6 +13,10 @@ cmake_module:
   
   mutually_exclusive:
     - [ glew-shared, glew-static, GLEW ]
+  
+  debian_packages:
+    runtime:
+      - libglew2.1
   
   targets:
     glew-shared:

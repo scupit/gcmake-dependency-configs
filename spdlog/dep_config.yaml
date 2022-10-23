@@ -10,6 +10,12 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: "spdlog::"
 
+  debian_packages:
+    runtime:
+      - libspdlog1
+    dev:
+      - libspdlog-dev
+
   install_var: SPDLOG_INSTALL
 
   target_configs:

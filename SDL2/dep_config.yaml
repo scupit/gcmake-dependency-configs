@@ -16,6 +16,12 @@ cmake_module:
   namespace_config:
     cmakelists_linking: "SDL2::"
 
+  debian_packages:
+    runtime:
+      - libsdl2-2.0-0
+    dev:
+      - libsdl2-dev
+
   emscripten_config:
     link_flag: "-sUSE_SDL=2"
 

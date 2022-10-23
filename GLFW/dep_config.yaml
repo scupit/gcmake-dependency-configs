@@ -12,6 +12,12 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: ""
 
+  debian_packages:
+    runtime:
+      - libglfw3
+    dev:
+      - libglfw3-dev
+
   emscripten_config:
     link_flag: "-sUSE_GLFW=3"
     is_flag_link_time_only: true

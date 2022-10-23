@@ -7,6 +7,12 @@ cmake_module:
     # We use a custom find module for ZLIB, but this documentation
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindZLIB.html"
 
+  debian_packages:
+    runtime:
+      - zlib1g
+    dev:
+      - zlib1g-dev
+
   emscripten_config:
     link_flag: "-sUSE_ZLIB=1"
 

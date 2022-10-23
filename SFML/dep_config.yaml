@@ -12,6 +12,35 @@ as_subdirectory:
       extensions:
         windows: zip
         unix: tar.gz
+  
+  debian_packages:
+    runtime:
+      - libsfml-graphics2.5
+      - libsfml-network2.5
+      - libsfml-system2.5
+      - libsfml-window2.5
+      - libopenal1
+      - libvorbis0a
+      - libvorbisenc2
+      - libvorbisfile3
+      - libflac8
+      - libfreetype6
+      - libx11-6
+      - libxrandr2
+      - libudev1
+      - libopengl0
+      - libogg0
+    dev:
+      - libsfml-dev
+      - libopenal-dev
+      - libvorbis-dev
+      - libflac-dev
+      - libfreetype6-dev
+      - libx11-dev
+      - libxrandr-dev
+      - libudev-dev
+      - libopengl-dev
+      - libogg-dev
 
   namespace_config:
     cmakelists_linking: sfml-

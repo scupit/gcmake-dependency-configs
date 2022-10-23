@@ -10,6 +10,12 @@ as_subdirectory:
 
   namespace_config:
     cmakelists_linking: ""
+
+  debian_packages:
+    runtime:
+      - libfreetype6
+    dev:
+      - libfreetype6-dev
   
   emscripten_config: 
     link_flag: "-sUSE_FREETYPE=1"
