@@ -15,10 +15,6 @@ as_subdirectory:
   
   debian_packages:
     runtime:
-      - libsfml-graphics2.5
-      - libsfml-network2.5
-      - libsfml-system2.5
-      - libsfml-window2.5
       - libopenal1
       - libvorbis0a
       - libvorbisenc2
@@ -31,7 +27,6 @@ as_subdirectory:
       - libopengl0
       - libogg0
     dev:
-      - libsfml-dev
       - libopenal-dev
       - libvorbis-dev
       - libflac-dev

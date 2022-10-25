@@ -37,7 +37,7 @@ function( populate_stb_lib
     add_library( stb_${target_name} INTERFACE )
     target_include_directories( stb_${target_name} INTERFACE
       "$<BUILD_INTERFACE:${stb_INCLUDE_DIR}>"
-      "$<INSTALL_INTERFACE:include/${stb_RELATIVE_DEP_PATH}>"
+      "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${stb_RELATIVE_DEP_PATH}>"
     )
 
     target_sources( stb_${target_name}

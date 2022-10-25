@@ -14,6 +14,7 @@ if( TARGET_SYSTEM_IS_WINDOWS AND NOT ALREADY_CONFIGURED_ZLIB )
 
       set( _ZLIB_DLL_NAMES
         "z.dll"
+        "libzlib.dll"
         "zlib.dll"
         "zdll.dll"
         "zlib1.dll"

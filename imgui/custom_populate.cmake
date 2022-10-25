@@ -110,8 +110,8 @@ function( _populate_imgui_backends )
           INTERFACE
           "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
           "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
-          "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}>"
-          "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/backends>"
+          "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}>"
+          "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}/backends>"
         )
 
         target_sources( ${new_imgui_target_name}
@@ -175,7 +175,7 @@ function( _configure_imgui_freetype_extension )
     target_include_directories( imgui_freetype_extension
       INTERFACE
         "$<BUILD_INTERFACE:${imgui_FREETYPE_EXTENSION_DIR}>"
-        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/misc/freetype>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}/misc/freetype>"
     )
   endif()
 endfunction()
@@ -211,8 +211,8 @@ function( _configure_imgui )
       INTERFACE
         "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
         "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
-        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}>"
-        "$<INSTALL_INTERFACE:include/${imgui_RELATIVE_DEP_PATH}/backends>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}/backends>"
     )
 
     target_sources( imgui_core
