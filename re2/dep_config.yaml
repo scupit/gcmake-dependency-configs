@@ -1,0 +1,15 @@
+as_subdirectory:
+  can_cross_compile: true
+
+  links:
+    github: https://github.com/google/re2
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:google/re2.git
+
+  namespace_config:
+    cmakelists_linking: "re2::"
+  
+  target_configs:
+    re2: { }

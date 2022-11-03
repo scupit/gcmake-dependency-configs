@@ -1,0 +1,1 @@
+option( RE2_BUILD_TESTING "Enable testing for RE2. GCMake sets this to OFF by default." OFF )
