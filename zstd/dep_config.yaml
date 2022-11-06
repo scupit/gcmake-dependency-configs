@@ -1,0 +1,18 @@
+cmake_module:
+  module_type: CustomFindModule
+  found_var: zstd_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/zstd"
+
+  debian_packages:
+    runtime:
+      - libzstd1
+    dev:
+      - libzstd-dev
+
+  namespace_config:
+    cmakelists_linking: "zstd::"
+  
+  targets:
+    zstd: { }

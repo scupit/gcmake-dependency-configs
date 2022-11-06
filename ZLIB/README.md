@@ -1,3 +1,5 @@
+<!-- TODO: Fix this to actually document information on ZLIB. I must have reverted it by accident
+at some point. -->
 # CURL
 
 URL data transfer library which supports a wide number of protocols.

@@ -29,9 +29,9 @@ git clone --branch 'curl-7_85_0' git@github.com:curl/curl.git
 cd curl
 cmake -B build-mingw-shared -G 'Ninja' -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
 # Example build using 10 jobs
-cmake --build build-mingw-gcc -j10
+cmake --build build-mingw-shared -j10
 
 # Make sure to run the 'install' with administrator privileges. The default install directory will
 # require administrator privileges.
-cmake --install build-mingw-gcc
+cmake --install build-mingw-shared
 ```
