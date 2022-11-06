@@ -13,7 +13,7 @@ On Debian-based Linux distriubutions, zstd can be retrieved with `apt install li
 
 Otherwise, it's recommended to [build zstd from source using CMake](#building-with-cmake).
 
-### ZSTD Deb Packages
+### ZSTD Deb Install
 
 `apt install libzstd1 libzsdt-dev`
 

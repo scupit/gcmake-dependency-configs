@@ -11,13 +11,13 @@ URL data transfer library which supports a wide number of protocols.
 
 ## Installation Options
 
-On Debian-based Linux distriubutions, CURL can be retrieved with `apt install libcurl4-openssl-dev`.
+On Debian-based Linux distriubutions, CURL can be retrieved with `apt install libcurl4 libcurl4-openssl-dev`.
 
 Otherwise, it's recommended to [build CURL from source using CMake](#building-with-cmake).
 
-### CURL Deb Package
+### CURL Deb Install
 
-`apt install libcurl4-openssl-dev`
+`apt install libcurl4 libcurl4-openssl-dev`
 
 ### Building with CMake
 

@@ -26,12 +26,14 @@ All subdirectory dependencies will be cloned and built automatically as part of 
 Dependencies which must be manually build and installed each have their own README with build and
 installation instructions, and are listed here:
 
-- [wxWidgets](./wxWidgets/)
-- [SDL2](./SDL2/)
-- [GLEW](./GLEW/)
+- [wxWidgets](./wxWidgets/README.md)
+- [SDL2](./SDL2/README.md)
+- [GLEW](./GLEW/README.md)
+- [ZLIB](./ZLIB/README.md)
+- [zstd](./zstd/README.md)
 
 It's also recommended to use [CCache](https://ccache.dev/) when building large dependencies
-like wxWidgets and SDL2, as it can provide a massive compilation speedup.
+like wxWidgets and SDL2, as it can provide massive recompilation speedups.
 
 Those are all CMake projects, so the
 [GCMake doc page on using CCache](https://github.com/scupit/gcmake-rust/blob/develop/docs/using_ccache.md)
