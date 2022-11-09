@@ -26,9 +26,11 @@ All subdirectory dependencies will be cloned and built automatically as part of 
 Dependencies which must be manually build and installed each have their own README with build and
 installation instructions, and are listed here:
 
-- [wxWidgets](./wxWidgets/README.md)
-- [SDL2](./SDL2/README.md)
+- [asio](./asio/README.md)
 - [GLEW](./GLEW/README.md)
+- [OpenSSL](./OpenSSL/README.md)
+- [SDL2](./SDL2/README.md)
+- [wxWidgets](./wxWidgets/README.md)
 - [ZLIB](./ZLIB/README.md)
 - [zstd](./zstd/README.md)
 

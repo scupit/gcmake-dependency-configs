@@ -1,0 +1,16 @@
+cmake_module:
+  module_type: CustomFindModule
+  found_var: ASIO_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/asio"
+
+  debian_packages:
+    dev:
+      - libasio-dev
+
+  namespace_config:
+    cmakelists_linking: "asio::"
+  
+  targets:
+    asio: { }

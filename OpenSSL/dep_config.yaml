@@ -1,0 +1,21 @@
+cmake_components_module:
+  module_type: CustomFindModule
+
+  cmakelists_usage:
+    link_format: Target
+    found_var: OpenSSL_FOUND
+    link_value: "OpenSSL::"
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/OpenSSL"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindOpenSSL.html"
+
+  debian_packages:
+    runtime:
+      - libssl1.1
+    dev:
+      - libssl-dev
+
+  components:
+    SSL: { }
+    Crypto: { }

@@ -1,0 +1,30 @@
+as_subdirectory:
+  can_cross_compile: true
+  links:
+    github: https://github.com/CrowCpp/Crow
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:CrowCpp/Crow.git
+
+  namespace_config:
+    cmakelists_linking: "Crow::"
+  
+  # TODO: Implement features for predefined dependencies.
+  # feature_mode:
+  #   list_var: CROW_FEATURES
+
+  # features:
+  #   ssl:
+  #     default: false
+  #   compression:
+  #     default: false
+
+  target_configs:
+    Crow:
+      external_requires:
+        - asio::asio
+        - OpenSSL::SSL
+        - ZLIB::ZLIB
+        # - (( feature:ssl )) OpenSSL::SSL
+        # - (( feature:compression )) ZLIB::ZLIB
