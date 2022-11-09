@@ -1,0 +1,23 @@
+cmake_module:
+  module_type: CustomFindModule
+  found_var: Brotli_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/brotli"
+
+  debian_packages:
+    runtime:
+      - libbrotli1
+    dev:
+      - libbrotli-dev
+
+  namespace_config:
+    cmakelists_linking: "Brotli::"
+  
+  targets:
+    br-encoder:
+      actual_target_name: brotlienc
+    br-decoder:
+      actual_target_name: brotlidec
+    br-common:
+      actual_target_name: brotlicommon

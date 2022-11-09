@@ -27,6 +27,7 @@ Dependencies which must be manually build and installed each have their own READ
 installation instructions, and are listed here:
 
 - [asio](./asio/README.md)
+- [Brotli](./Brotli/README.md)
 - [GLEW](./GLEW/README.md)
 - [OpenSSL](./OpenSSL/README.md)
 - [SDL2](./SDL2/README.md)

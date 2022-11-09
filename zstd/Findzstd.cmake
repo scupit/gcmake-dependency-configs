@@ -1,14 +1,16 @@
 # Input Hints:
-#   - zstd_ROOT
-#   - zstd_NO_CMAKE
+#   - ZSTD_ROOT
+#   - ZSTD_NO_CMAKE
+#   - ZSTD_PREFER_STATIC
 # 
 # Targets:
-#   - libzstd_shared
-#   - libzstd_static
+#   - zstd::zstd
 # 
 # Defines:
-#   - zstd_WINDOWS_SHARED_IMPORT_LIB
-#   - zstd_PREFER_STATIC
+#   - ZSTD_WINDOWS_SHARED_IMPORT_LIB
+#   - ZSTD_INCLUDE_DIR
+#   - ZSTD_LIBRARY
+#   - ZSTD_LIBRARIES
 
 if( zstd_FIND_COMPONENTS )
   message(AUTHOR_WARNING
@@ -26,8 +28,8 @@ set( CMAKE_FIND_LIBRARY_SUFFIXES )
 
 set( _zstd_SEARCH_CONFIGS )
 
-if( zstd_ROOT )
-  set( _zstd_SEARCH_ROOT PATHS ${zstd_ROOT} NO_DEFAULT_PATH )
+if( ZSTD_ROOT )
+  set( _zstd_SEARCH_ROOT PATHS ${ZSTD_ROOT} NO_DEFAULT_PATH )
   list( APPEND _zstd_SEARCH_CONFIGS _zstd_SEARCH_ROOT )
 endif()
 
@@ -40,24 +42,24 @@ set( _zstd_SEARCH_NORMAL
 unset( _zstd_x86 )
 list( APPEND _zstd_SEARCH_CONFIGS _zstd_SEARCH_NORMAL )
 
-if( NOT "${_zstd_PREVIOUSLY_SEARCHED_FOR_STATIC}" STREQUAL "${zstd_PREFER_STATIC}" )
+if( NOT "${_zstd_PREVIOUSLY_SEARCHED_FOR_STATIC}" STREQUAL "${ZSTD_PREFER_STATIC}" )
   set( _TYPE_SEARCHING_FOR_HAS_CHANGED TRUE )
 else()
   set( _TYPE_SEARCHING_FOR_HAS_CHANGED FALSE )
 endif()
 
-set( _zstd_PREVIOUSLY_SEARCHED_FOR_STATIC ${zstd_PREFER_STATIC} CACHE INTERNAL "" FORCE )
+set( _zstd_PREVIOUSLY_SEARCHED_FOR_STATIC ${ZSTD_PREFER_STATIC} CACHE INTERNAL "" FORCE )
 
 # Redo the search (by clearing the search cache results) if the given hints might result in
 # a different library being found.
-if( zstd_ROOT OR _TYPE_SEARCHING_FOR_HAS_CHANGED )
+if( ZSTD_ROOT OR _TYPE_SEARCHING_FOR_HAS_CHANGED )
   unset( _zstd_shared_import_lib CACHE )
-  unset( zstd_LIBRARY CACHE )
-  unset( zstd_INCLUDE_DIR CACHE )
+  unset( ZSTD_LIBRARY CACHE )
+  unset( ZSTD_INCLUDE_DIR CACHE )
   unset( zstd_DIR CACHE )
 endif()
 
-if( NOT zstd_NO_CMAKE )
+if( NOT ZSTD_NO_CMAKE )
   find_package( zstd CONFIG ${_zstd_SEARCH_ROOT} )
   if( zstd_FOUND )
     set( _zstd_CMAKE_CONFIG_FOUND TRUE )
@@ -66,7 +68,7 @@ endif()
 
 set( _zstd_LIB_NAMES zstd )
 
-if( zstd_PREFER_STATIC )
+if( ZSTD_PREFER_STATIC )
   list( APPEND _zstd_LIB_NAMES zstd_static )
 endif()
 
@@ -75,7 +77,7 @@ if( WIN32 )
   list( APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".dll.a" )
 endif()
 
-if( zstd_PREFER_STATIC )
+if( ZSTD_PREFER_STATIC )
   if( WIN32 )
     list( PREPEND CMAKE_FIND_LIBRARY_SUFFIXES ".lib" ".a" )
   else()
@@ -92,7 +94,7 @@ if( _zstd_CMAKE_CONFIG_FOUND )
   if( NOT TARGET zstd::zstd )
     set( _targets_to_search zstd::libzstd_shared )
 
-    if( zstd_PREFER_STATIC )
+    if( ZSTD_PREFER_STATIC )
       list( PREPEND _targets_to_search zstd::libzstd_static )
     else()
       list( APPEND _targets_to_search zstd::libzstd_static )
@@ -110,7 +112,8 @@ if( _zstd_CMAKE_CONFIG_FOUND )
             NO_DEFAULT_PATH
           )
 
-          set( zstd_WINDOWS_SHARED_IMPORT_LIB "${_zstd_shared_import_lib}" )
+          mark_as_advanced( _zstd_shared_import_lib )
+          set( ZSTD_WINDOWS_SHARED_IMPORT_LIB "${_zstd_shared_import_lib}" )
         endif()
 
         break()
@@ -119,13 +122,13 @@ if( _zstd_CMAKE_CONFIG_FOUND )
   endif()
 else()
   foreach( search IN LISTS _zstd_SEARCH_CONFIGS )
-    find_path( zstd_INCLUDE_DIR
+    find_path( ZSTD_INCLUDE_DIR
       NAMES zstd.h zdict.h zstd_errors.h
       ${${search}}
       PATH_SUFFIXES include
     )
 
-    find_library( zstd_LIBRARY
+    find_library( ZSTD_LIBRARY
       NAMES ${_zstd_LIB_NAMES}
       NAMES_PER_DIR
       ${${search}}
@@ -136,26 +139,30 @@ else()
   include( FindPackageHandleStandardArgs )
   find_package_handle_standard_args( zstd
     REQUIRED_VARS
-      zstd_INCLUDE_DIR
-      zstd_LIBRARY
+      ZSTD_INCLUDE_DIR
+      ZSTD_LIBRARY
     HANDLE_COMPONENTS
   )
 
-  if( zstd_FOUND )
-    cmake_path( GET zstd_LIBRARY FILENAME _zstd_lib_file_name )
+  if( ZSTD_FOUND )
+    cmake_path( GET ZSTD_LIBRARY FILENAME _zstd_lib_file_name )
+    
+    if( NOT ZSTD_LIBRARIES )
+      set( ZSTD_LIBRARIES "${ZSTD_LIBRARY}" )
+    endif()
 
     if( _zstd_lib_file_name MATCHES "dll" )
-      set( zstd_WINDOWS_SHARED_IMPORT_LIB "${zstd_LIBRARY}" )
+      set( ZSTD_WINDOWS_SHARED_IMPORT_LIB "${ZSTD_LIBRARY}" )
     endif()
 
     add_library( zstd::zstd UNKNOWN IMPORTED )
     target_include_directories( zstd::zstd
-      INTERFACE "${zstd_INCLUDE_DIR}"
+      INTERFACE "${ZSTD_INCLUDE_DIR}"
     )
   
     set_target_properties( zstd::zstd
       PROPERTIES
-        IMPORTED_LOCATION "${zstd_LIBRARY}"
+        IMPORTED_LOCATION "${ZSTD_LIBRARY}"
     )
   endif()
 endif()
