@@ -21,94 +21,95 @@ as_subdirectory:
   # TODO: Add individual implementations, not just the supported combinations. Developers should still
   # be able to write their own backend while using a base implementation.
   target_configs:
-    imgui_core: { }
+    core:
+      actual_target_name: imgui_core
     freetype_extension:
       actual_target_name: imgui_freetype_extension
       requires:
-        - imgui_core
+        - core
       external_requires:
         - FreeType::freetype
 
     ((android)) android_opengl2:
       requires:
-        - imgui_core
+        - core
       external_requires:
         - OpenGL::GL
     ((android)) android_opengl3:
       requires:
-        - imgui_core
+        - core
       external_requires:
         - OpenGL::GL
 
     glfw_opengl2:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - GLFW::glfw
+        - GLFW::GLFW
         - OpenGL::GL
     glfw_opengl3:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - GLFW::glfw
+        - GLFW::GLFW
         - OpenGL::GL
 
     # TODO: Add this back once Vulkan is added as a predefined dependency
     # glfw_vulkan:
-    #   requires: [ imgui_core ]
+    #   requires: [ core ]
     #   external_requires:
-    #     - GLFW::glfw
+    #     - GLFW::GLFW
     #     - Vulkan::Vulkan
 
     sdl_opengl2:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
         - OpenGL::GL
     sdl_opengl3:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
         - OpenGL::GL
     # TODO: Add this back once Vulkan is added as a predefined dependency
     # sdl_vulkan:
-    #   requires: [ imgui_core ]
+    #   requires: [ core ]
     #   external_requires:
-    #     - SDL2::SDL2 or SDL2::SDL2-static
+    #     - SDL2::SDL2 or SDL2::static
     #     - Vulkan::Vulkan
     ((windows)) sdl_directx9:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
     ((windows)) sdl_directx10:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
     ((windows)) sdl_directx11:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
     ((windows)) sdl_directx12:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
     sdl_sdlrenderer:
       requires:
-        - imgui_core
+        - core
       external_requires:
-        - SDL2::SDL2 or SDL2::SDL2-static
+        - SDL2::SDL2 or SDL2::static
 
     ((windows)) win32_directx9:
-      requires: [ imgui_core ]
+      requires: [ core ]
     ((windows)) win32_directx10:
-      requires: [ imgui_core ]
+      requires: [ core ]
     ((windows)) win32_directx11:
-      requires: [ imgui_core ]
+      requires: [ core ]
     ((windows)) win32_directx12:
-      requires: [ imgui_core ]
+      requires: [ core ]

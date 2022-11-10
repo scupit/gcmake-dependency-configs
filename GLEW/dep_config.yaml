@@ -12,15 +12,15 @@ cmake_module:
     cmakelists_linking: "GLEW::"
   
   mutually_exclusive:
-    - [ glew-shared, glew-static, GLEW ]
+    - [ shared, static, GLEW ]
   
   debian_packages:
     runtime:
       - libglew2.1
   
   targets:
-    glew-shared:
+    shared:
       actual_target_name: glew
-    glew-static:
+    static:
       actual_target_name: glew_s
     GLEW: { }    # Either shared or static

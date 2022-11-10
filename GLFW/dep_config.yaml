@@ -17,5 +17,7 @@ as_subdirectory:
     is_flag_link_time_only: true
 
   install_var: GLFW_INSTALL
+
   target_configs:
-    glfw: { }
+    GLFW:
+      actual_target_name: glfw

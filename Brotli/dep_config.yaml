@@ -15,9 +15,9 @@ cmake_module:
     cmakelists_linking: "Brotli::"
   
   targets:
-    br-encoder:
+    encoder:
       actual_target_name: brotlienc
-    br-decoder:
+    decoder:
       actual_target_name: brotlidec
-    br-common:
+    common:
       actual_target_name: brotlicommon

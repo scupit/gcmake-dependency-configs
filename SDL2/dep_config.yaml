@@ -26,17 +26,20 @@ cmake_module:
     link_flag: "-sUSE_SDL=2"
 
   mutually_exclusive:
-    - [ SDL2, SDL2-static ]
+    - [ SDL2, static ]
   
   targets:
     # Shared version of SDL2, if a shared SDL2 lib was found.
     # Otherwise acts as an alias to SDL2-static (see below).
     SDL2: { }
     # Static version of SDL2
-    SDL2-static: { }
+    static:
+      actual_target_name: SDL2-static
     # Provides SDL_main. Always static.
-    SDL2main:
+    main:
+      actual_target_name: SDL2main
       requires:
-        - SDL2 or SDL2-static     
+        - SDL2 or static     
     # Provides some common SDL testing functionality. Always static.
-    SDL2test: { }
+    test:
+      actual_target_name: SDL2test

@@ -11,11 +11,13 @@ as_subdirectory:
     cmakelists_linking: "pugixml::"
 
   mutually_exclusive:
-    - [ pugixml, pugixml-shared, pugixml-static ]
+    - [ pugixml, shared, static ]
 
   target_configs:
     # pugixml-shared is only built when BUILD_SHARED_LIBS is ON. 
-    pugixml-shared: { }
-    pugixml-static: { }
+    shared:
+      actual_target_name: pugixml-shared
+    static:
+      actual_target_name: pugixml-static
     # This is an alias to either the static or shared library version.
     pugixml: { }
