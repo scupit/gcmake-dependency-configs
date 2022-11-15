@@ -1,5 +1,6 @@
 cmake_module:
   module_type: CustomFindModule
+  module_name: asio
   found_var: ASIO_FOUND
 
   links:

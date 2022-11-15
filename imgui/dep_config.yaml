@@ -28,31 +28,31 @@ as_subdirectory:
       requires:
         - core
       external_requires:
-        - FreeType::freetype
+        - freetype::freetype
 
     ((android)) android_opengl2:
       requires:
         - core
       external_requires:
-        - OpenGL::GL
+        - opengl::opengl
     ((android)) android_opengl3:
       requires:
         - core
       external_requires:
-        - OpenGL::GL
+        - opengl::opengl
 
     glfw_opengl2:
       requires:
         - core
       external_requires:
-        - GLFW::GLFW
-        - OpenGL::GL
+        - glfw::glfw
+        - opengl::opengl
     glfw_opengl3:
       requires:
         - core
       external_requires:
-        - GLFW::GLFW
-        - OpenGL::GL
+        - glfw::glfw
+        - opengl::opengl
 
     # TODO: Add this back once Vulkan is added as a predefined dependency
     # glfw_vulkan:
@@ -65,14 +65,14 @@ as_subdirectory:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
-        - OpenGL::GL
+        - sdl2::sdl2 or sdl2::static
+        - opengl::opengl
     sdl_opengl3:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
-        - OpenGL::GL
+        - sdl2::sdl2 or sdl2::static
+        - opengl::opengl
     # TODO: Add this back once Vulkan is added as a predefined dependency
     # sdl_vulkan:
     #   requires: [ core ]
@@ -83,27 +83,27 @@ as_subdirectory:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
+        - sdl2::sdl2 or sdl2::static
     ((windows)) sdl_directx10:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
+        - sdl2::sdl2 or sdl2::static
     ((windows)) sdl_directx11:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
+        - sdl2::sdl2 or sdl2::static
     ((windows)) sdl_directx12:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
+        - sdl2::sdl2 or sdl2::static
     sdl_sdlrenderer:
       requires:
         - core
       external_requires:
-        - SDL2::SDL2 or SDL2::static
+        - sdl2::sdl2 or sdl2::static
 
     ((windows)) win32_directx9:
       requires: [ core ]

@@ -1,5 +1,6 @@
 cmake_module:
   module_type: CustomFindModule
+  module_name: Brotli
   found_var: Brotli_FOUND
 
   links:

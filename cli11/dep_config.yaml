@@ -11,4 +11,5 @@ as_subdirectory:
     cmakelists_linking: "CLI11::"
 
   target_configs:
-    CLI11: { }
+    cli11:
+      actual_target_name: CLI11

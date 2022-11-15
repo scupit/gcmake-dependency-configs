@@ -1,5 +1,6 @@
 cmake_components_module:
   module_type: CustomFindModule
+  module_name: OpenSSL
 
   cmakelists_usage:
     link_format: Target
@@ -17,5 +18,7 @@ cmake_components_module:
       - libssl-dev
 
   components:
-    SSL: { }
-    Crypto: { }
+    ssl:
+      actual_target_name: SSL
+    crypto:
+      actual_target_name: Crypto

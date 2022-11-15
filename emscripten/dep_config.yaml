@@ -13,11 +13,11 @@ as_subdirectory:
   # Don't contstrain these targets to ((emscripten)). They are all CMake INTERFACE targets
   # which have no effect when not using Emscripten, so there is no need.
   target_configs:
-    nodeFS:
+    nodefs:
       actual_target_name: emscripten-compat_NODEFS
-    idbFS:
+    idbfs:
       actual_target_name: emscripten-compat_IDBFS
-    workerFS:
+    workerfs:
       actual_target_name: emscripten-compat_WORKERFS
-    proxyFS:
+    proxyfs:
       actual_target_name: emscripten-compat_PROXYFS

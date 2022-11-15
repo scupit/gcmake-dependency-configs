@@ -14,8 +14,10 @@ as_subdirectory:
   install_by_default: false
 
   mutually_exclusive:
-    - [ doctest, doctest_with_main ]
+    - [ with_main, without_main ]
 
   target_configs:
-    doctest: { }
-    doctest_with_main: { }
+    without_main:
+      actual_target_name: doctest
+    with_main:
+      actual_target_name: doctest_with_main

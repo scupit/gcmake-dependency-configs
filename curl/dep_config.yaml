@@ -1,5 +1,6 @@
 cmake_module:
   module_type: BuiltinFindModule
+  module_name: CURL
   found_var: CURL_FOUND
 
   links:
@@ -16,4 +17,5 @@ cmake_module:
     cmakelists_linking: "CURL::"
   
   targets:
-    libcurl: {}
+    curl:
+      actual_target_name: libcurl

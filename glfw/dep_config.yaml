@@ -19,5 +19,4 @@ as_subdirectory:
   install_var: GLFW_INSTALL
 
   target_configs:
-    GLFW:
-      actual_target_name: glfw
+    glfw: { }

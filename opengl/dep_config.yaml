@@ -1,5 +1,6 @@
 cmake_module:
   module_type: BuiltinFindModule
+  module_name: OpenGL
   found_var: OPENGL_FOUND
 
   links:
@@ -13,4 +14,7 @@ cmake_module:
     is_internally_supported: true
   
   targets:
-    GL: { }
+    opengl:
+      actual_target_name: GL
+    glu:
+      actual_target_name: GLU

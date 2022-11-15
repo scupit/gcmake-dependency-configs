@@ -1,5 +1,6 @@
 cmake_module:
   module_type: CustomFindModule
+  module_name: zstd
   found_var: zstd_FOUND
 
   links:

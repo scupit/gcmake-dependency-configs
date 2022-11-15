@@ -1,5 +1,5 @@
 as_subdirectory:
-  can_cross_compile: true
+  can_cross_compile: false
   links:
     github: https://github.com/CrowCpp/Crow
 
@@ -21,10 +21,11 @@ as_subdirectory:
   #     default: false
 
   target_configs:
-    Crow:
+    crow:
+      actual_target_name: Crow
       external_requires:
         - asio::asio
-        - OpenSSL::SSL
-        - ZLIB::ZLIB
-        # - (( feature:ssl )) OpenSSL::SSL
-        # - (( feature:compression )) ZLIB::ZLIB
+        - openssl::ssl
+        - zlib::zlib
+        # - (( feature:ssl )) openssl::ssl
+        # - (( feature:compression )) zlib::zlib

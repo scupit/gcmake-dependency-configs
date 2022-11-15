@@ -1,5 +1,6 @@
 cmake_module:
   module_type: BuiltinFindModule
+  module_name: Threads
   found_var: Threads_FOUND
 
   links:
@@ -13,4 +14,5 @@ cmake_module:
     link_flag: "-sUSE_PTHREADS=1"
   
   targets:
-    Threads: { }
+    threads:
+      actual_target_name: Threads

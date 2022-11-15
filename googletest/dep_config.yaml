@@ -11,11 +11,13 @@ as_subdirectory:
     cmakelists_linking: "GTest::"
 
   mutually_exclusive:
-    - [ gtest, gtest_main ]
+    - [ with_main, without_main ]
 
   install_var: INSTALL_GTEST
   install_by_default: false
 
   target_configs:
-    gtest: { }
-    gtest_main: { }
+    without_main:
+      actual_target_name: gtest
+    with_main:
+      actual_target_name: gtest_main
