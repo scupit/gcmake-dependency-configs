@@ -1,0 +1,18 @@
+as_subdirectory:
+  can_cross_compile: true
+
+  links:
+    github: https://github.com/scupit/cppfront-cmake-wrapper
+
+  download_info:
+    git_method:
+      # Uses my cppfront CMake wrapper instead of the original repository.
+      # Since the wrapper acts as a build abstraction layer over cppfront,
+      # this allows for much easier compatibility retention.
+      repo_url: git@github.com:scupit/cppfront-cmake-wrapper.git
+
+  namespace_config:
+    cmakelists_linking: "cppfront::"
+
+  target_configs:
+    artifacts: { }
