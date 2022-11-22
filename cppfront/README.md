@@ -19,3 +19,21 @@ allows me to decouple the cppfront build from the GCMake tool itself. That way I
 build in the wrapper repository without needing to update any GCMake dependency configuration scripts.
 
 The wrapper repository is also a way to just build and install cppfront using CMake, which is nice.
+
+## Installing CppFront on your system
+
+> **NOTE:** Using an existing installation of CppFront is *required when using Emscripten* and recommended
+> when cross-compiling in general.
+
+With any major C++20 supporting compiler:
+
+``` sh
+git clone 'git@github.com:scupit/cppfront-cmake-wrapper.git'
+cd cppfront-cmake-wrapper
+cmake -B build/ # ... any other CMake options such as -G 'Ninja'
+cmake --build build/ --parallel
+sudo cmake --install build/ # Or run in an Administrator prompt in Windows
+```
+
+[Full build details](https://github.com/scupit/cppfront-cmake-wrapper) can be found in the
+[cppfront-cmake-wrapper repository README](https://github.com/scupit/cppfront-cmake-wrapper).
