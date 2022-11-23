@@ -25,11 +25,8 @@ function( _populate_sqlite3 )
     set( sqlite3_sources "${sqlite3_DEP_DIR}/sqlite3.c" )
     set( sqlite3_headers "${sqlite3_DEP_DIR}/sqlite3.h" )
 
-    get_without_toplevel_dir_prefix( "${sqlite3_sources}" sqlite3_sources_install )
-    make_generators( "${sqlite3_sources}" "${sqlite3_sources_install}" sqlite_s )
-
-    get_without_toplevel_dir_prefix( "${sqlite3_headers}" sqlite3_headers_install )
-    make_generators( "${sqlite3_headers}" "${sqlite3_headers_install}" sqlite_h )
+    gcmake_wrap_dep_files_in_generators( sqlite3_sources sqlite_s_b sqlite_s_i )
+    gcmake_wrap_dep_files_in_generators( sqlite3_headers sqlite_h_b sqlite_h_i )
 
     target_sources( sqlite3
       PRIVATE
@@ -51,12 +48,9 @@ function( _populate_sqlite3 )
 
   if( sqlite3_BUILD_SHELL AND NOT TARGET sqlite )
     set( sqlite_shell_sources "${sqlite3_DEP_DIR}/sqlite3.c" )
-
-    get_without_toplevel_dir_prefix( "${sqlite_shell_sources}" sqlite_shell_sources_install )
-    make_generators( "${sqlite_shell_sources}" "${sqlite3_sources_install}" sqlite_shell_s )
+    gcmake_wrap_dep_files_in_generators( sqlite_shell_sources sqlite_shell_s_b sqlite_shell_s_i )
 
     add_executable( sqlite )
-
     target_sources( sqlite
       PRIVATE 
         ${sqlite_shell_s_b}

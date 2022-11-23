@@ -31,8 +31,7 @@ function( populate_stb_lib
         "${stb_DEP_DIR}"
     )
 
-    get_without_toplevel_dir_prefix( "${${stb_header_item}}" stb_header_item_install )
-    make_generators( "${${stb_header_item}}" "${stb_header_item_install}" stb_h_files )
+    gcmake_wrap_dep_files_in_generators( ${stb_header_item} stb_h_files_b stb_h_files_i )
 
     add_library( stb_${target_name} INTERFACE )
     target_include_directories( stb_${target_name} INTERFACE

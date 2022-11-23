@@ -38,15 +38,12 @@ function( _populate_imgui_backends )
     set( _imgui_${sys}_sources "${imgui_BACKENDS_DIR}/imgui_impl_${sys}.cpp" )
     set( _imgui_${sys}_headers "${imgui_BACKENDS_DIR}/imgui_impl_${sys}.h" )
 
-    get_without_toplevel_dir_prefix( "${_imgui_${sys}_sources}" _imgui_${sys}_sources_install )
-    get_without_toplevel_dir_prefix( "${_imgui_${sys}_headers}" _imgui_${sys}_headers_install )
-
     # im_<SYS>_sources_b
     # im_<SYS>_sources_i
     # im_<SYS>_headers_i
     # im_<SYS>_headers_b
-    make_generators( "${_imgui_${sys}_sources}" "${_imgui_${sys}_sources_install}" im_${sys}_sources )
-    make_generators( "${_imgui_${sys}_headers}" "${_imgui_${sys}_headers_install}" im_${sys}_headers )
+    gcmake_wrap_dep_files_in_generators( _imgui_${sys}_sources im_${sys}_sources_b im_${sys}_sources_i )
+    gcmake_wrap_dep_files_in_generators( _imgui_${sys}_headers im_${sys}_headers_b im_${sys}_headers_i )
   endforeach()
 
   foreach( api IN LISTS IMGUI_APIS )
@@ -57,15 +54,12 @@ function( _populate_imgui_backends )
       list( APPEND imgui_${api}_headers "${imgui_BACKENDS_DIR}/imgui_impl_opengl3_loader.h" )
     endif()
 
-    get_without_toplevel_dir_prefix( "${_imgui_${api}_sources}" _imgui_${api}_sources_install )
-    get_without_toplevel_dir_prefix( "${_imgui_${api}_headers}" _imgui_${api}_headers_install )
-
     # im_<API>_sources_b
     # im_<API>_sources_i
     # im_<API>_headers_i
     # im_<API>_headers_b
-    make_generators( "${_imgui_${api}_sources}" "${_imgui_${api}_sources_install}" im_${api}_sources )
-    make_generators( "${_imgui_${api}_headers}" "${_imgui_${api}_headers_install}" im_${api}_headers )
+    gcmake_wrap_dep_files_in_generators( _imgui_${api}_sources im_${api}_sources_b im_${api}_sources_i )
+    gcmake_wrap_dep_files_in_generators( _imgui_${api}_headers im_${api}_headers_b im_${api}_headers_i )
   endforeach()
 
   # Map system to supported APIs
@@ -147,10 +141,8 @@ function( _configure_imgui_freetype_extension )
       "${imgui_FREETYPE_EXTENSION_DIR}/imgui_freetype.h"
     )
 
-    get_without_toplevel_dir_prefix( "${extension_source_list}" extension_sources_install )
-    get_without_toplevel_dir_prefix( "${extension_header_list}" extension_headers_install )
-    make_generators( "${extension_source_list}" "${extension_sources_install}" extension_sources )
-    make_generators( "${extension_header_list}" "${extension_headers_install}" extension_headers )
+    gcmake_wrap_dep_files_in_generators( extension_source_list extension_sources_b extension_sources_i )
+    gcmake_wrap_dep_files_in_generators( extension_header_list extension_headers_b extension_headers_i )
 
     add_library( imgui_freetype_extension INTERFACE )
     add_library( imgui::imgui_freetype_extension ALIAS imgui_freetype_extension )
@@ -198,10 +190,8 @@ function( _configure_imgui )
     "${imgui_DEP_DIR}/imgui_truetype.h"
   )
 
-  get_without_toplevel_dir_prefix( "${core_source_list}" imgui_sources_install )
-  get_without_toplevel_dir_prefix( "${core_header_list}" imgui_headers_install )
-  make_generators( "${core_source_list}" "${imgui_sources_install}" imgui_core_s )
-  make_generators( "${core_header_list}" "${imgui_headers_install}" imgui_core_h )
+  gcmake_wrap_dep_files_in_generators( core_source_list imgui_core_s_b imgui_core_s_i )
+  gcmake_wrap_dep_files_in_generators( core_header_list imgui_core_h_b imgui_core_h_i )
 
   if( NOT TARGET imgui_core )
     add_library( imgui_core INTERFACE )
