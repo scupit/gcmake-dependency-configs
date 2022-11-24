@@ -1,4 +1,4 @@
-unaliased_target_name( yaml-cpp::yaml-cpp yaml_target_name )
+gcmake_unaliased_target_name( yaml-cpp::yaml-cpp yaml_target_name )
 get_target_property( YAML_CPP_LIB_TYPE ${yaml_target_name} TYPE )
 
 if( YAML_CPP_LIB_TYPE STREQUAL "STATIC_LIBRARY" )
