@@ -17,30 +17,36 @@ Run `gcmake-rust dep-config update` to update your local copy of this repository
 (in *~/.gcmake/gcmake-dependency-configs*) to the latest version **of the currently checked out branch**,
 or to clone the repo if it could not be found. *The repo is cloned to the `develop` branch by default*.
 
-To update and check out a specific branch, use `gcmake-rust dep-config update --branch your-branch-name`.
+To update and check out a specific branch, use `gcmake-rust dep-config update --to-branch 'the-branch-name'`.
+Just **NOTE** that it's recommended to stay on the `develop` branch.
 
 ## Building Dependencies
 
 All subdirectory dependencies will be cloned and built automatically as part of your project.
 
-Dependencies which must be manually build and installed each have their own README with build and
+Dependencies which must be manually built and installed each have their own README with build and
 installation instructions, and are listed here:
 
 - [asio](./asio/README.md)
 - [Brotli](./Brotli/README.md)
-- [GLEW](./GLEW/README.md)
-- [OpenSSL](./OpenSSL/README.md)
-- [SDL2](./SDL2/README.md)
-- [wxWidgets](./wxWidgets/README.md)
-- [ZLIB](./ZLIB/README.md)
+- [GLEW](./glew/README.md)
+- [OpenSSL](./openssl/README.md)
+- [SDL2](./sdl2/README.md)
+- [wxWidgets](./wxwidgets/README.md)
+- [ZLIB](./zlib/README.md)
 - [zstd](./zstd/README.md)
 
 It's also recommended to use [CCache](https://ccache.dev/) when building large dependencies
-like wxWidgets and SDL2, as it can provide massive recompilation speedups.
-
-Those are all CMake projects, so the
+like wxWidgets and SDL2, as it can provide massive recompilation speedups. See the
 [GCMake doc page on using CCache](https://github.com/scupit/gcmake-rust/blob/develop/docs/using_ccache.md)
-will be of interest.
+for information on how to do that.
+
+[CppFront](https://github.com/hsutter/cppfront) can also be pre-built and installed on the system,
+but is generally just be embedded in a project like other subdirectory dependencies. Embedding CppFront
+by default makes it easier for other people to build your project in one step, since they most likely
+don't have CppFront already installed on their system. See the
+[dependency README on cppfront](./cppfront/README.md) and
+[documentation on using CppFront with gcmake-rust](https://github.com/scupit/gcmake-rust/blob/develop/docs/cppfront_integration.md) for more information on the topic.
 
 ## GCMake Repository Links
 
@@ -48,5 +54,5 @@ will be of interest.
 - [gcmake-test-project](https://github.com/scupit/gcmake-test-project): The 'test case' project for
     gcmake-rust which also acts as its working example.
 - [gcmake-dependency-configs](https://github.com/scupit/gcmake-dependency-configs): The
-    [dependency compatibility layer](predefined_dependency_doc.md) repository which allows non-gcmake
+    [dependency compatibility layer](https://github.com/scupit/gcmake-rust/blob/develop/docs/predefined_dependency_doc.md) repository which allows non-gcmake
     projects to be imported and consumed 'out of the box' by gcmake-rust.
