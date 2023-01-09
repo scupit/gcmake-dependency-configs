@@ -6,7 +6,7 @@ cmake_module:
   found_var: GLEW_FOUND
 
   links:
-    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/GLEW"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/glew"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindGLEW.html"
 
   namespace_config:

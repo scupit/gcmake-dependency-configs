@@ -4,7 +4,7 @@ cmake_module:
   found_var: Threads_FOUND
 
   links:
-    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/Threads"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/threads"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindThreads.html"
 
   namespace_config:

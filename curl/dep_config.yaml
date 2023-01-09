@@ -4,7 +4,7 @@ cmake_module:
   found_var: CURL_FOUND
 
   links:
-    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/CURL"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/curl"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindCURL.html"
 
   debian_packages:

@@ -3,7 +3,7 @@ cmake_components_module:
   module_name: WxWidgets
 
   links:
-    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/wxWidgets"
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/wxwidgets"
     components_doc: "https://docs.wxwidgets.org/trunk/page_libs.html"
     cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindwxWidgets.html"
 
