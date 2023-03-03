@@ -34,9 +34,11 @@ function( populate_stb_lib
     gcmake_wrap_dep_files_in_generators( ${stb_header_item} stb_h_files_b stb_h_files_i )
 
     add_library( stb_${target_name} INTERFACE )
-    target_include_directories( stb_${target_name} INTERFACE
-      "$<BUILD_INTERFACE:${stb_INCLUDE_DIR}>"
-      "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${stb_RELATIVE_DEP_PATH}>"
+    target_include_directories( stb_${target_name}
+      SYSTEM
+      INTERFACE
+        "$<BUILD_INTERFACE:${stb_INCLUDE_DIR}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${stb_RELATIVE_DEP_PATH}>"
     )
 
     target_sources( stb_${target_name}

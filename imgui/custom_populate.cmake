@@ -101,11 +101,12 @@ function( _populate_imgui_backends )
         endif()
 
         target_include_directories( ${new_imgui_target_name}
+          SYSTEM
           INTERFACE
-          "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
-          "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
-          "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}>"
-          "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}/backends>"
+            "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
+            "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"
+            "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}>"
+            "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}/backends>"
         )
 
         target_sources( ${new_imgui_target_name}
@@ -165,6 +166,7 @@ function( _configure_imgui_freetype_extension )
     )
 
     target_include_directories( imgui_freetype_extension
+      SYSTEM
       INTERFACE
         "$<BUILD_INTERFACE:${imgui_FREETYPE_EXTENSION_DIR}>"
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${imgui_RELATIVE_DEP_PATH}/misc/freetype>"
@@ -198,6 +200,7 @@ function( _configure_imgui )
     add_library( imgui::imgui_core ALIAS imgui_core )
 
     target_include_directories( imgui_core
+      SYSTEM
       INTERFACE
         "$<BUILD_INTERFACE:${imgui_INCLUDE_DIR}>"
         "$<BUILD_INTERFACE:${imgui_BACKENDS_DIR}>"

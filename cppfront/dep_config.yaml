@@ -11,6 +11,14 @@ as_subdirectory:
       # this allows for much easier compatibility retention.
       repo_url: git@github.com:scupit/cppfront-cmake-wrapper.git
 
+  config_options:
+    inner_repo_revision:
+      cache: true
+      cmake_var: CPPFRONT_REVISION
+    inner_repo_url:
+      cache: true
+      cmake_var: CPPFRONT_REPOSITORY
+
   namespace_config:
     cmakelists_linking: "cppfront::"
 

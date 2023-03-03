@@ -40,6 +40,7 @@ function( _populate_sqlite3 )
     )
 
     target_include_directories( sqlite3
+      SYSTEM
       PUBLIC
         "$<BUILD_INTERFACE:${sqlite3_INCLUDE_DIR}>"
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${sqlite3_RELATIVE_DEP_PATH}>"
