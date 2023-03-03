@@ -13,10 +13,10 @@ as_subdirectory:
 
   config_options:
     inner_repo_revision:
-      cache: true
+      cache_description: "cppfront commit hash, branch name, or tag name"
       cmake_var: CPPFRONT_REVISION
     inner_repo_url:
-      cache: true
+      cache_description: "cppfront altername repository name"
       cmake_var: CPPFRONT_REPOSITORY
 
   namespace_config:
