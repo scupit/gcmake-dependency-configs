@@ -4,7 +4,11 @@ as_subdirectory:
 
   download_info:
     url_method:
-      url_base: https://www.sqlite.org/2022/sqlite-amalgamation-
+      url_base_by_version:
+        # The sqlite3 amalgamation release URL changes by year, which is annoying.
+        "3.41.0": https://www.sqlite.org/2023/sqlite-amalgamation- 
+        "3.37.2": https://www.sqlite.org/2022/sqlite-amalgamation- 
+        "3.34.1": https://www.sqlite.org/2021/sqlite-amalgamation- 
       version_transform: "{{MAJOR}}{{MINOR:3}}{{PATCH:3}}"
       extensions:
         windows: zip
