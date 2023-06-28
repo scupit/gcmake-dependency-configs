@@ -4,6 +4,12 @@ as_subdirectory:
     github: https://github.com/fmtlib/fmt
 
   download_info:
+    url_method:
+      url_base: https://github.com/fmtlib/fmt/archive/refs/tags/
+      version_transform: "{{MAJOR}}.{{MINOR}}.{{PATCH}}"
+      extensions:
+        windows: zip
+        unix: tar.gz
     git_method:
       repo_url: git@github.com:fmtlib/fmt.git
 
