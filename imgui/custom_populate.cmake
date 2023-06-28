@@ -1,7 +1,7 @@
 
 set( imgui_RELATIVE_DEP_PATH "dep/imgui" )
-set( imgui_DEP_DIR "${TOPLEVEL_PROJECT_DIR}/${imgui_RELATIVE_DEP_PATH}" )
-set( imgui_INCLUDE_DIR "${TOPLEVEL_PROJECT_DIR}/${imgui_RELATIVE_DEP_PATH}" )
+set( imgui_DEP_DIR "${imgui_SOURCE_DIR}" )
+set( imgui_INCLUDE_DIR "${imgui_DEP_DIR}" )
 set( imgui_BACKENDS_DIR "${imgui_DEP_DIR}/backends" )
 
 # In this 'dependency configuration' context, the current source directory and the toplevel
@@ -120,6 +120,7 @@ function( _populate_imgui_backends )
         target_sources( ${new_imgui_target_name}
           INTERFACE
             FILE_SET HEADERS
+              BASE_DIRS "${imgui_INCLUDE_DIR}"
               FILES
                 ${im_${sys}_headers_b}
                 ${im_${sys}_headers_i}
@@ -162,6 +163,7 @@ function( _configure_imgui_freetype_extension )
     target_sources( imgui_freetype_extension
       INTERFACE
         FILE_SET HEADERS
+          BASE_DIRS "${imgui_INCLUDE_DIR}"
           FILES ${extension_headers_b} ${extension_headers_i}
     )
 
@@ -216,6 +218,7 @@ function( _configure_imgui )
     target_sources( imgui_core
       INTERFACE
         FILE_SET HEADERS
+          BASE_DIRS "${imgui_INCLUDE_DIR}"
           FILES ${imgui_core_h_b} ${imgui_core_h_i}
     )
   endif()

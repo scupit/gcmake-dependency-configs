@@ -1,7 +1,7 @@
 
 set( stb_RELATIVE_DEP_PATH "dep/stb" )
-set( stb_DEP_DIR "${TOPLEVEL_PROJECT_DIR}/${stb_RELATIVE_DEP_PATH}" )
-set( stb_INCLUDE_DIR "${TOPLEVEL_PROJECT_DIR}/${stb_RELATIVE_DEP_PATH}" )
+set( stb_DEP_DIR "${stb_SOURCE_DIR}")
+set( stb_INCLUDE_DIR "${stb_DEP_DIR}" )
 
 # In this 'dependency configuration' context, the current source directory and the toplevel
 # source directory are always the same. This is because dependencies are only configured in the project root.
@@ -44,6 +44,7 @@ function( populate_stb_lib
     target_sources( stb_${target_name}
       INTERFACE
         FILE_SET HEADERS
+          BASE_DIRS "${stb_INCLUDE_DIR}"
           FILES ${stb_h_files_b} ${stb_h_files_i}
     )
 

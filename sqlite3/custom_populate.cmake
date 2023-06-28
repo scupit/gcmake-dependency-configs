@@ -1,7 +1,7 @@
 
 set( sqlite3_RELATIVE_DEP_PATH "dep/sqlite3" )
-set( sqlite3_DEP_DIR "${TOPLEVEL_PROJECT_DIR}/${sqlite3_RELATIVE_DEP_PATH}" )
-set( sqlite3_INCLUDE_DIR "${TOPLEVEL_PROJECT_DIR}/${sqlite3_RELATIVE_DEP_PATH}" )
+set( sqlite3_DEP_DIR "${sqlite3_SOURCE_DIR}" )
+set( sqlite3_INCLUDE_DIR "${sqlite3_DEP_DIR}" )
 option( sqlite3_BUILD_SHELL "If ON, build the sqlite shell executable." OFF )
 
 # In this 'dependency configuration' context, the current source directory and the toplevel
@@ -35,8 +35,11 @@ function( _populate_sqlite3 )
 
     target_sources( sqlite3
       PUBLIC
-        ${sqlite_h_b}
-        ${sqlite_h_i}
+        FILE_SET HEADERS
+          BASE_DIRS "${sqlite3_INCLUDE_DIR}"
+          FILES
+            ${sqlite_h_b}
+            ${sqlite_h_i}
     )
 
     target_include_directories( sqlite3
