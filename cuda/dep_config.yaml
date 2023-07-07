@@ -1,7 +1,7 @@
 cmake_module:
   module_type: BuiltinFindModule
   module_name: CUDAToolkit
-  found_var: CUDAToolkit_Found
+  found_var: CUDAToolkit_FOUND
 
   links:
     gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/cuda"
@@ -9,6 +9,13 @@ cmake_module:
 
   namespace_config:
     cmakelists_linking: "CUDA::"
+
+  # TODO: Figure out which debian packages should be installed.
+  # debian_packages:
+  #   runtime:
+  #     - ?
+  #   dev:
+  #     - ?
 
   mutually_exclusive:
     - [ runtime, runtime_static ]
