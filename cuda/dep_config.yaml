@@ -10,6 +10,9 @@ cmake_module:
   namespace_config:
     cmakelists_linking: "CUDA::"
 
+  mutually_exclusive:
+    - [ runtime, runtime_static ]
+
   # TODO: Add the rest of the targets. (There are a TON.)
   targets:
     (( cuda )) runtime:
