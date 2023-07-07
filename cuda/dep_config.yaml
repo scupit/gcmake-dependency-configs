@@ -1,0 +1,20 @@
+cmake_module:
+  module_type: BuiltinFindModule
+  module_name: CUDAToolkit
+  found_var: CUDAToolkit_Found
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/cuda"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindCUDAToolkit.html"
+
+  namespace_config:
+    cmakelists_linking: "CUDA::"
+
+  # TODO: Add the rest of the targets. (There are a TON.)
+  targets:
+    (( cuda )) runtime:
+      actual_target_name: cudart
+    (( cuda )) runtime_static:
+      actual_target_name: cudart_static
+    (( cuda )) driver:
+      actual_target_name: cuda_driver
