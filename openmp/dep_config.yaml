@@ -1,0 +1,20 @@
+cmake_module:
+  module_type: BuiltinFindModule
+  module_name: OpenMP
+  found_var: OpenMP_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/openmp"
+    cmake_find_module: "https://cmake.org/cmake/help/latest/module/FindOpenMP.html"
+
+  namespace_config:
+    cmakelists_linking: "OpenMP::"
+
+  emscripten_config:
+    link_flag: "-sUSE_PTHREADS=1"
+  
+  targets:
+    c:
+      actual_target_name: OpenMP_C
+    cpp:
+      actual_target_name: OpenMP_CXX

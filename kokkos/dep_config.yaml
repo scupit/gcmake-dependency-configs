@@ -1,0 +1,33 @@
+as_subdirectory:
+  can_cross_compile: true
+  links:
+    github: https://github.com/kokkos/kokkos
+  
+  download_info:
+    url_method:
+      url_base: https://github.com/kokkos/kokkos/archive/refs/tags/
+      version_transform: "{{MAJOR}}.{{MINOR}}.{{PATCH:2}}"
+      extensions:
+        windows: zip
+        unix: tar.gz
+    git_method:
+      repo_url: git@github.com:kokkos/kokkos.git
+    
+  namespace_config:
+    cmakelists_linking: "Kokkos::"
+    # cmakelists_linking: ""
+  
+  target_configs:
+    kokkos: { }
+    # These are internal targets.
+    # core:
+    #   actual_target_name: kokkoscore
+    # algorithms:
+    #   requires: [ core ]
+    #   actual_target_name: kokkosalgorithms
+    # containers:
+    #   requires: [ core ]
+    #   actual_target_name: kokkoscontainers
+    # simd:
+    #   requires: [ core ]
+    #   actual_target_name: kokkossimd
