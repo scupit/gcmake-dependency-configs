@@ -10,12 +10,15 @@ cmake_module:
   namespace_config:
     cmakelists_linking: "CUDA::"
 
-  # TODO: Figure out which debian packages should be installed.
-  # debian_packages:
-  #   runtime:
-  #     - ?
-  #   dev:
-  #     - ?
+  # TODO: Once I add more targets, add the matching packages here.
+  # TODO: The CUDA toolkit has a lot of targets. I should probably add a system
+  # which only installs packages which are used by the project, instead of all packages.
+  debian_packages:
+    runtime:
+      - libcudart11.0
+    dev:
+      - nvidia-cuda-toolkit
+      - nvidia-cuda-dev
 
   mutually_exclusive:
     - [ runtime, runtime_static ]
