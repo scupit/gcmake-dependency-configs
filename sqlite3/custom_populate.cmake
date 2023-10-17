@@ -16,11 +16,26 @@ function( _populate_sqlite3 )
   #   - sqlite3ext.h: Header for programs which intend to be imported by sqlite as sqlite extensions.
   #                   I'm going to ignore this for now.
 
+  set( THREADS_PREFER_PTHREAD_FLAG TRUE )
+  find_package( Threads MODULE )
+
+  if( NOT Threads_FOUND )
+    message( FATAL_ERROR "Failed to find Threading module needed to build SQLite." )
+  endif()
+
   if( NOT TARGET sqlite3 )
     # Since a library type is not specified, whether 'sqlite3' is built as static or shared
     # depends on the value of BUILD_SHARED_LIBS.
     add_library( sqlite3 )
     add_library( sqlite3::sqlite3 ALIAS sqlite3 )
+
+    # Ensures sqlite3.so doesn't fail to link due to missing pthread functions.
+    target_link_libraries( sqlite3 PRIVATE Threads::Threads )
+
+    if( TARGET_SYSTEM_IS_UNIX AND (USING_GCC OR USING_CLANG) )
+      # Ensures sqlite3.so doesn't fail to link due to missing functions like 'dlopen'.
+      target_link_libraries( sqlite3 PRIVATE -ldl )
+    endif()
 
     set( sqlite3_sources "${sqlite3_DEP_DIR}/sqlite3.c" )
     set( sqlite3_headers "${sqlite3_DEP_DIR}/sqlite3.h" )

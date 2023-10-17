@@ -12,7 +12,10 @@ as_subdirectory:
       version_transform: "{{MAJOR}}{{MINOR:3}}{{PATCH:3}}"
       extensions:
         windows: zip
-        unix: tar.gz
+        # A gzip version of the amalgamation does exist, but it is called 
+        # sqlite-autoconf-<version>.tar.gz. Rather than patch in platform-specific URLs,
+        # we'll just use the zip version since it also just works and we don't use autoconf.
+        unix: zip
 
   debian_packages:
     runtime:
