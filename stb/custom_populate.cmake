@@ -12,21 +12,22 @@ set( stb_INCLUDE_DIR "${stb_DEP_DIR}" )
 
 function( populate_stb_lib
   target_name
-  header_name
+  header_name_list
 )
   if( NOT TARGET stb_${target_name} )
+    list( GET header_name_list 0 first_header_name )
     string( REPLACE
       ".h"
       "_header"
       stb_header_item
-      "${header_name}"
+      "${first_header_name}"
     )
 
     find_file( ${stb_header_item}
       REQUIRED
       NO_CACHE
       NAMES
-        ${header_name}
+        ${header_name_list}
       PATHS
         "${stb_DEP_DIR}"
     )
@@ -62,5 +63,5 @@ endfunction()
 
 populate_stb_lib( image "stb_image.h" )
 populate_stb_lib( image_write "stb_image_write.h" )
-populate_stb_lib( image_resize "stb_image_resize.h" )
+populate_stb_lib( image_resize "stb_image_resize.h;stb_image_resize2.h" )
 populate_stb_lib( divide "stb_divide.h" )
