@@ -1,0 +1,24 @@
+as_subdirectory:
+  can_cross_compile: true
+
+  links:
+    github: https://github.com/raysan5/raylib
+
+  download_info:
+    git_method:
+      repo_url: git@github.com:raysan5/raylib.git
+    url_method:
+      url_base: https://github.com/raysan5/raylib/archive/refs/tags/
+      version_transform: "{{MAJOR}}.{{MINOR}}.{{PATCH}}"
+      extensions:
+        windows: zip
+        unix: tar.gz
+
+  namespace_config:
+    cmakelists_linking: ""
+
+  target_configs:
+    raylib:
+      external_requires:
+        - glfw::glfw
+        - opengl::opengl
