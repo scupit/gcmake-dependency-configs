@@ -17,6 +17,11 @@ as_subdirectory:
   namespace_config:
     cmakelists_linking: ""
 
+  # TODO: When compiling with Emscripten, raylib requires the '-sASYNCIFY' flag
+  # to be used when linking. However, the 'raylib' target doesn't pass that flag
+  # to dependent targets. For now, it's fine to leave it since GCMake now uses '-sASYNCIFY'
+  # by default. In the future, I might create a '_raylib_compat' target which passes flags
+  # like this on to dependent targets.
   target_configs:
     raylib:
       external_requires:
