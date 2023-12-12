@@ -21,8 +21,10 @@ It is recommended to install OpenSSL using a package manager.
 #### For MinGW
 
 MinGW users should download the [MSYS2 OpenSSL package](https://packages.msys2.org/package/mingw-w64-x86_64-openssl) using `pacman -S mingw-w64-x86_64-openssl` from within the MSYS shell. (Here's a [link to the package page](https://packages.msys2.org/package/mingw-w64-x86_64-openssl)).
-If CMake can't find OpenSSL even after installing it, try setting the `OPENSSL_ROOT_DIR` cache 
-variable to the mingw-w64 installation directory.
+If CMake can't find OpenSSL even after installing it, try setting the `OPENSSL_ROOT_DIR` cache
+variable to the root directory of your OpenSSL installation. For example, my MinGW OpenSSL
+*bin*, *lib*, and *include* directories are all in *C:\\msys64\mingw64*, so I set it on the
+command line with `-DOPENSSL_ROOT_DIR='C:/msys64/mingw64'`.
 
 For example: `cmake -B build -G 'Ninja' -DOPENSSL_ROOT_DIR='C:/msys64/mingw64'`
 

@@ -30,6 +30,7 @@ installation instructions, and are listed here:
 - [asio](./asio/README.md)
 - [Brotli](./Brotli/README.md)
 - [GLEW](./glew/README.md)
+- [libwebsockets](./lws/README.md) (lws)
 - [OpenSSL](./openssl/README.md)
 - [SDL2](./sdl2/README.md)
 - [wxWidgets](./wxwidgets/README.md)

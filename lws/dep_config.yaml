@@ -1,0 +1,36 @@
+cmake_module:
+  module_type: ConfigFile
+  module_name: libwebsockets
+  found_var: libwebsockets_FOUND
+
+  links:
+    gcmake_readme: "https://github.com/scupit/gcmake-dependency-configs/tree/develop/lws"
+
+  namespace_config:
+    cmakelists_linking: ""
+
+  mutually_exclusive:
+    - [ static, shared ]
+
+  debian_packages:
+    runtime:
+      - libwebsockets16
+    dev:
+      - libwebsockets-dev
+  
+  # TODO: libwebsockets supports defining plugins with a CMake macro.
+  # I'm not sure how to add support for that sort of thing yet, but it might
+  # be worth doing in the future.
+  targets:
+    static:
+      actual_target_name: websockets
+      external_requires:
+        - openssl::ssl
+        - openssl::crypto
+        - threads::threads
+    shared:
+      actual_target_name: websockets_shared
+      external_requires:
+        - openssl::ssl
+        - openssl::crypto
+        - threads::threads
