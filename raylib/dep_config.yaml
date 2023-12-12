@@ -9,7 +9,21 @@ as_subdirectory:
       repo_url: git@github.com:raysan5/raylib.git
     url_method:
       url_base: https://github.com/raysan5/raylib/archive/refs/tags/
+      # TODO: raylib didn't include a patch number in the 5.0 release :(.
+      # I'll need to figure out a way to account for that.
       version_transform: "{{MAJOR}}.{{MINOR}}.{{PATCH}}"
+
+      # TODO: Allow version_transform to be specified as a list of objects like below.
+      # Make sure to disallow overlaps. 'from' is inclusive, 'until' isn't.
+
+      # version_transform:
+      #   - from: "5.0.1"
+      #     version_transform: "{{MAJOR}}.{{MINOR}}.{{PATCH}}"
+      #   - from: "5.0.0"
+      #     until: "5.0.1"
+      #     value: "{{MAJOR}}.{{MINOR}}"
+      #   - until: "5.0"
+      #     value: "{{MAJOR}}.{{MINOR}}.{{PATCH}}"
       extensions:
         windows: zip
         unix: tar.gz
