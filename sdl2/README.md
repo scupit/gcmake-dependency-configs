@@ -17,7 +17,7 @@ I use ninja with the MSYS2 MinGW GCC 12.2.0 distribution. Your compiler and buil
 ``` sh
 git clone git@github.com:libsdl-org/SDL.git
 cd SDL
-cmake -B build-mingw-gcc -G 'Ninja' -DCMAKE_BUILD_TYPE=Relase
+cmake -B build-mingw-gcc -G 'Ninja' -DCMAKE_BUILD_TYPE=Release
 cmake --build build-mingw-gcc
 # This needs to be run with administrator privileges
 cmake --install build-mingw-gcc
