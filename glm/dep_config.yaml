@@ -1,16 +1,17 @@
 as_subdirectory:
   can_cross_compile: true
 
-  # TODO: I need to make a PR to the glm repo with the installation variable addition.
-  # once that is merged, add the GML GitHub link here.
   download_info:
     git_method:
+      # GLM currently conflicts with GLFW because both projects create an 'uninstall' target, but only GLFW
+      # creates it conditionally. I'll submit a bug report and a pull request to GLM. Use the master branch of my fork
+      # until that goes through.
       # repo_url: git@github.com:g-truc/glm.git
       repo_url: git@github.com:scupit/glm.git
 
   namespace_config:
     cmakelists_linking: "glm::"
 
-  install_var: GLM_INSTALL
+  install_var: GLM_BUILD_INSTALL
   target_configs:
     glm: { }

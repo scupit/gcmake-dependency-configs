@@ -12,6 +12,15 @@ talk on Youtube for an idea of what cppfront is all about.
 - ["Can C++ be 10x Simpler and Safer?" talk](https://www.youtube.com/watch?v=ELeZAKCN4tY) (Contains plenty of live cppfront demos)
 - [My cppfront wrapper repository](https://github.com/scupit/cppfront-cmake-wrapper)
 
+## IMPORTANT NOTE
+
+As of commit [8dd89ec8c9cfe9633286b2768ad0404455e342c7](https://github.com/hsutter/cppfront/commit/8dd89ec8c9cfe9633286b2768ad0404455e342c7),
+the latest MinGW ld.exe (GNU binutils 2.40) distributed by msys2 fails to link cppfront.exe when
+compiling with optimizations off (Debug mode). If you're building in Debug mode with MinGW g++,
+you must use the `-fuse-ld=lld` flag to use LLVM's lld linker in place of ld (need to install Clang first).
+
+**You must set the CMake options `-DGCMAKE_ADDITIONAL_COMPILER_FLAGS='fuse-ld=lld'` and `-DGCMAKE_ADDITIONAL_LINK_TIME_FLAGS='-fuse-ld=lld'`.**
+
 ## Why use a wrapper repository
 
 The [cppfront-cmake-wrapper](https://github.com/scupit/cppfront-cmake-wrapper)

@@ -8,6 +8,14 @@ This repository is for configuring C/C++ dependencies to be compatible with
 This repository is best explained in the
 [gcmake-rust predefined dependency configuration doc page](https://github.com/scupit/gcmake-rust/blob/develop/docs/predefined_dependency_doc.md).
 
+## IMPORTANT NOTES
+
+If using [cppfront](./cppfront/README.md) or [glm](./glm/README.md), make sure to read their corresponding configuration READMEs.
+Your build will probably break if you don't.
+
+- [cppfront configuration README](./cppfront/README.md)
+- [glm configuration README](./glm/README.md)
+
 ## Updating
 
 > **NOTE:** Updating the repo requires a working [gcmake-rust](https://github.com/scupit/gcmake-rust)
