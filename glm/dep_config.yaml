@@ -14,4 +14,13 @@ as_subdirectory:
 
   install_var: GLM_BUILD_INSTALL
   target_configs:
-    glm: { }
+    # If GLM_BUILD_LIBRARY is ON, 'glm' will be a compiled library. Otherwise,
+    # it's the header_only library. We set GLM_BUILD_LIBRARY to ON by default
+    # in pre_load.cmake. 
+    glm:
+      requires: [ _private_header_only ]
+
+    # Needed for when we install the compiled library. Not sure why this isn't
+    # happening in GLM itself.
+    _private_header_only:
+      actual_target_name: glm-header-only
